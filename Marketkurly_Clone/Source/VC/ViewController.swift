@@ -52,19 +52,22 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let mainTV = UITableView()
-    
+    let mainTV = UITableView(frame: CGRect.zero, style: .grouped)
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         configureUI()
         
         mainTV.delegate = self
         mainTV.dataSource = self
         mainTV.separatorStyle = .none
+        
+        mainTV.tableHeaderView = UIView(frame: .zero)
+        mainTV.tableFooterView = UIView(frame: .zero)
+        mainTV.sectionHeaderHeight = 0
         
         // section == 0 에 해당하는 cell
         mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")
@@ -123,6 +126,7 @@ class ViewController: UIViewController {
             make.leading.bottom.trailing.equalToSuperview()
         }
         
+
     }
 }
 
@@ -130,6 +134,19 @@ class ViewController: UIViewController {
 //MARK: - UITableViewDelegate
 
 extension ViewController : UITableViewDelegate {
+    
+    // tableView footer
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+
+        default:
+            return 353
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
@@ -153,9 +170,12 @@ extension ViewController : UITableViewDelegate {
             
         default:
             return 371
+            
         }
     }
 }
+
+
 
 
 //MARK: - UITableViewDataSource
@@ -176,9 +196,25 @@ extension ViewController : UITableViewDataSource {
             return 1
             
         }
-        
-        
+            
     }
+    
+    // footer 넣기
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            let footer = UIView()
+            return footer
+
+        default:
+            let footer = TableFooterView()
+            footer.backgroundColor = UIColor(red: 246.0 / 255.0, green: 247.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+            return footer
+        }
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {

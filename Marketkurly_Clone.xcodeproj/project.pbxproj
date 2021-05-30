@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
+		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
+		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
+		BB4E2F572663C71B00F46A87 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F562663C71B00F46A87 /* TabBarController.swift */; };
 		BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */; };
 		BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */; };
 		BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */; };
@@ -29,6 +32,9 @@
 /* Begin PBXFileReference section */
 		4F96B5DA5AD52565E85763F1 /* Pods-Marketkurly_Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.release.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.release.xcconfig"; sourceTree = "<group>"; };
 		5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.debug.xcconfig"; sourceTree = "<group>"; };
+		BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
+		BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		BB4E2F562663C71B00F46A87 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionCell.swift; sourceTree = "<group>"; };
 		BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableCell.swift; sourceTree = "<group>"; };
@@ -65,6 +71,7 @@
 		BB293ECB26637071009A9298 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BB4E2F512663A99400F46A87 /* Extension */,
 				BBC260322654F1DF0012AFA0 /* Assets.xcassets */,
 				BB293ECD266370D5009A9298 /* Storyboard */,
 			);
@@ -75,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				BB7FC78A26601DF80083B1C5 /* Model */,
+				BB4E2F4F266385A400F46A87 /* View */,
 				BBC260442654F64F0012AFA0 /* VC */,
 				BBC260452654F6540012AFA0 /* Cell */,
 			);
@@ -88,6 +96,22 @@
 				BBC2602F2654F1DB0012AFA0 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		BB4E2F4F266385A400F46A87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB4E2F512663A99400F46A87 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BB7FC78A26601DF80083B1C5 /* Model */ = {
@@ -155,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				BBC2602D2654F1DB0012AFA0 /* ViewController.swift */,
+				BB4E2F562663C71B00F46A87 /* TabBarController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -299,6 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */,
+				BB4E2F572663C71B00F46A87 /* TabBarController.swift in Sources */,
 				BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */,
 				BB7FC7982660B72F0083B1C5 /* DailySaleTableCell.swift in Sources */,
 				BB7FC7A52660C6300083B1C5 /* RegretPriceTableCell.swift in Sources */,
@@ -307,6 +334,7 @@
 				BBC2602A2654F1DB0012AFA0 /* AppDelegate.swift in Sources */,
 				BBC2602C2654F1DB0012AFA0 /* SceneDelegate.swift in Sources */,
 				BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */,
+				BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */,
 				BB7FC790266033160083B1C5 /* SaleTableCell.swift in Sources */,
 				BB7FC78C26601E0A0083B1C5 /* ProductDataModel.swift in Sources */,
 				BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */,
