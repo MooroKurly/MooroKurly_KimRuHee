@@ -65,9 +65,10 @@ class ViewController: UIViewController {
         mainTV.dataSource = self
         mainTV.separatorStyle = .none
         
-        mainTV.tableHeaderView = UIView(frame: .zero)
-        mainTV.tableFooterView = UIView(frame: .zero)
+        // 푸터 추가하고 나서 생긴 오류를 해결하는 코드 -> 이유가 뭘까?
+        mainTV.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
         mainTV.sectionHeaderHeight = 0
+        
         
         // section == 0 에 해당하는 cell
         mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")
@@ -91,6 +92,8 @@ class ViewController: UIViewController {
         view.addSubview(menuView)
         
         view.addSubview(mainTV)
+        
+        
         
         // 상단 로고 uiview
         upperView.snp.makeConstraints { (make) in
@@ -135,18 +138,6 @@ class ViewController: UIViewController {
 
 extension ViewController : UITableViewDelegate {
     
-    // tableView footer
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
-            return 0
-
-        default:
-            return 353
-        }
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
@@ -173,6 +164,19 @@ extension ViewController : UITableViewDelegate {
             
         }
     }
+    
+    // tableView footer
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return CGFloat()
+
+        default:
+            return 353
+        }
+    }
+    
 }
 
 
@@ -181,6 +185,7 @@ extension ViewController : UITableViewDelegate {
 //MARK: - UITableViewDataSource
 
 extension ViewController : UITableViewDataSource {
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -198,22 +203,6 @@ extension ViewController : UITableViewDataSource {
         }
             
     }
-    
-    // footer 넣기
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        switch section {
-        case 0:
-            let footer = UIView()
-            return footer
-
-        default:
-            let footer = TableFooterView()
-            footer.backgroundColor = UIColor(red: 246.0 / 255.0, green: 247.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
-            return footer
-        }
-    }
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -289,6 +278,21 @@ extension ViewController : UITableViewDataSource {
         default:
             return UITableViewCell()
             
+        }
+    }
+    
+
+    // footer 넣기
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            return UIView()
+
+        default:
+            let footer = TableFooterView()
+            footer.backgroundColor = UIColor(red: 246.0 / 255.0, green: 247.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+            return footer
         }
     }
     
