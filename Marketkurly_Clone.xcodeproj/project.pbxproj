@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
+		BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */; };
+		BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */; };
+		BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */; };
+		BB7FC78C26601E0A0083B1C5 /* ProductDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78B26601E0A0083B1C5 /* ProductDataModel.swift */; };
+		BB7FC790266033160083B1C5 /* SaleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78F266033150083B1C5 /* SaleTableCell.swift */; };
+		BB7FC7942660B5750083B1C5 /* DailySubTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC7932660B5750083B1C5 /* DailySubTableCell.swift */; };
+		BB7FC7982660B72F0083B1C5 /* DailySaleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC7972660B72F0083B1C5 /* DailySaleTableCell.swift */; };
+		BB7FC79B2660B87A0083B1C5 /* SaleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC79A2660B87A0083B1C5 /* SaleDataModel.swift */; };
+		BB7FC7A52660C6300083B1C5 /* RegretPriceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC7A42660C6300083B1C5 /* RegretPriceTableCell.swift */; };
+		BBC2602A2654F1DB0012AFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC260292654F1DB0012AFA0 /* AppDelegate.swift */; };
+		BBC2602C2654F1DB0012AFA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2602B2654F1DB0012AFA0 /* SceneDelegate.swift */; };
+		BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2602D2654F1DB0012AFA0 /* ViewController.swift */; };
+		BBC260312654F1DB0012AFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC2602F2654F1DB0012AFA0 /* Main.storyboard */; };
+		BBC260332654F1DF0012AFA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC260322654F1DF0012AFA0 /* Assets.xcassets */; };
+		BBC260362654F1DF0012AFA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC260342654F1DF0012AFA0 /* LaunchScreen.storyboard */; };
+		BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC260412654F6420012AFA0 /* BannerTableCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F96B5DA5AD52565E85763F1 /* Pods-Marketkurly_Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.release.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.release.xcconfig"; sourceTree = "<group>"; };
+		5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.debug.xcconfig"; sourceTree = "<group>"; };
+		BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
+		BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionCell.swift; sourceTree = "<group>"; };
+		BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableCell.swift; sourceTree = "<group>"; };
+		BB7FC78B26601E0A0083B1C5 /* ProductDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataModel.swift; sourceTree = "<group>"; };
+		BB7FC78F266033150083B1C5 /* SaleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTableCell.swift; sourceTree = "<group>"; };
+		BB7FC7932660B5750083B1C5 /* DailySubTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySubTableCell.swift; sourceTree = "<group>"; };
+		BB7FC7972660B72F0083B1C5 /* DailySaleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySaleTableCell.swift; sourceTree = "<group>"; };
+		BB7FC79A2660B87A0083B1C5 /* SaleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDataModel.swift; sourceTree = "<group>"; };
+		BB7FC7A42660C6300083B1C5 /* RegretPriceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegretPriceTableCell.swift; sourceTree = "<group>"; };
+		BBC260262654F1DB0012AFA0 /* Marketkurly_Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketkurly_Clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC260292654F1DB0012AFA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBC2602B2654F1DB0012AFA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BBC2602D2654F1DB0012AFA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BBC260302654F1DB0012AFA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBC260322654F1DF0012AFA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBC260352654F1DF0012AFA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBC260372654F1DF0012AFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBC260412654F6420012AFA0 /* BannerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableCell.swift; sourceTree = "<group>"; };
+		DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketkurly_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBC260232654F1DB0012AFA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB293ECB26637071009A9298 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BBC260322654F1DF0012AFA0 /* Assets.xcassets */,
+				BB293ECD266370D5009A9298 /* Storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BB293ECC266370C4009A9298 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BB7FC78A26601DF80083B1C5 /* Model */,
+				BBC260442654F64F0012AFA0 /* VC */,
+				BBC260452654F6540012AFA0 /* Cell */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		BB293ECD266370D5009A9298 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BBC260342654F1DF0012AFA0 /* LaunchScreen.storyboard */,
+				BBC2602F2654F1DB0012AFA0 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		BB7FC78A26601DF80083B1C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB7FC78B26601E0A0083B1C5 /* ProductDataModel.swift */,
+				BB7FC79A2660B87A0083B1C5 /* SaleDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB7FC7A02660C5AF0083B1C5 /* FirstSection */ = {
+			isa = PBXGroup;
+			children = (
+				BBC260412654F6420012AFA0 /* BannerTableCell.swift */,
+				BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */,
+				BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */,
+				BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */,
+				BB7FC78F266033150083B1C5 /* SaleTableCell.swift */,
+				BB7FC7932660B5750083B1C5 /* DailySubTableCell.swift */,
+				BB7FC7972660B72F0083B1C5 /* DailySaleTableCell.swift */,
+			);
+			path = FirstSection;
+			sourceTree = "<group>";
+		};
+		BB7FC7A32660C5BD0083B1C5 /* SecondSection */ = {
+			isa = PBXGroup;
+			children = (
+				BB7FC7A42660C6300083B1C5 /* RegretPriceTableCell.swift */,
+			);
+			path = SecondSection;
+			sourceTree = "<group>";
+		};
+		BBC2601D2654F1DB0012AFA0 = {
+			isa = PBXGroup;
+			children = (
+				BBC260282654F1DB0012AFA0 /* Marketkurly_Clone */,
+				BBC260272654F1DB0012AFA0 /* Products */,
+				E048B5EE20DA2FA8BD675C64 /* Pods */,
+				E030730A1B1238A6403BB253 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BBC260272654F1DB0012AFA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBC260262654F1DB0012AFA0 /* Marketkurly_Clone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBC260282654F1DB0012AFA0 /* Marketkurly_Clone */ = {
+			isa = PBXGroup;
+			children = (
+				BBC260292654F1DB0012AFA0 /* AppDelegate.swift */,
+				BBC2602B2654F1DB0012AFA0 /* SceneDelegate.swift */,
+				BB293ECC266370C4009A9298 /* Source */,
+				BB293ECB26637071009A9298 /* Resource */,
+				BBC260372654F1DF0012AFA0 /* Info.plist */,
+			);
+			path = Marketkurly_Clone;
+			sourceTree = "<group>";
+		};
+		BBC260442654F64F0012AFA0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2602D2654F1DB0012AFA0 /* ViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		BBC260452654F6540012AFA0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BB7FC7A02660C5AF0083B1C5 /* FirstSection */,
+				BB7FC7A32660C5BD0083B1C5 /* SecondSection */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E030730A1B1238A6403BB253 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E048B5EE20DA2FA8BD675C64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */,
+				4F96B5DA5AD52565E85763F1 /* Pods-Marketkurly_Clone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBC260252654F1DB0012AFA0 /* Marketkurly_Clone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBC2603A2654F1DF0012AFA0 /* Build configuration list for PBXNativeTarget "Marketkurly_Clone" */;
+			buildPhases = (
+				9EB83CA34A23BDB1D0E2D616 /* [CP] Check Pods Manifest.lock */,
+				BBC260222654F1DB0012AFA0 /* Sources */,
+				BBC260232654F1DB0012AFA0 /* Frameworks */,
+				BBC260242654F1DB0012AFA0 /* Resources */,
+				3CB7D6F6AD12A6DF2A0376ED /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Marketkurly_Clone;
+			productName = Marketkurly_Clone;
+			productReference = BBC260262654F1DB0012AFA0 /* Marketkurly_Clone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBC2601E2654F1DB0012AFA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					BBC260252654F1DB0012AFA0 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+				};
+			};
+			buildConfigurationList = BBC260212654F1DB0012AFA0 /* Build configuration list for PBXProject "Marketkurly_Clone" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBC2601D2654F1DB0012AFA0;
+			productRefGroup = BBC260272654F1DB0012AFA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBC260252654F1DB0012AFA0 /* Marketkurly_Clone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBC260242654F1DB0012AFA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC260362654F1DF0012AFA0 /* LaunchScreen.storyboard in Resources */,
+				BBC260332654F1DF0012AFA0 /* Assets.xcassets in Resources */,
+				BBC260312654F1DB0012AFA0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CB7D6F6AD12A6DF2A0376ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EB83CA34A23BDB1D0E2D616 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Marketkurly_Clone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBC260222654F1DB0012AFA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */,
+				BB7FC7982660B72F0083B1C5 /* DailySaleTableCell.swift in Sources */,
+				BB7FC7A52660C6300083B1C5 /* RegretPriceTableCell.swift in Sources */,
+				BB7FC79B2660B87A0083B1C5 /* SaleDataModel.swift in Sources */,
+				BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */,
+				BBC2602A2654F1DB0012AFA0 /* AppDelegate.swift in Sources */,
+				BBC2602C2654F1DB0012AFA0 /* SceneDelegate.swift in Sources */,
+				BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */,
+				BB7FC790266033160083B1C5 /* SaleTableCell.swift in Sources */,
+				BB7FC78C26601E0A0083B1C5 /* ProductDataModel.swift in Sources */,
+				BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */,
+				BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */,
+				BB7FC7942660B5750083B1C5 /* DailySubTableCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BBC2602F2654F1DB0012AFA0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBC260302654F1DB0012AFA0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBC260342654F1DF0012AFA0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBC260352654F1DF0012AFA0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBC260382654F1DF0012AFA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBC260392654F1DF0012AFA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBC2603B2654F1DF0012AFA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5GQ6QL9S3X;
+				INFOPLIST_FILE = Marketkurly_Clone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ruheekim.Marketkurly-Clone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BBC2603C2654F1DF0012AFA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F96B5DA5AD52565E85763F1 /* Pods-Marketkurly_Clone.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5GQ6QL9S3X;
+				INFOPLIST_FILE = Marketkurly_Clone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ruheekim.Marketkurly-Clone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBC260212654F1DB0012AFA0 /* Build configuration list for PBXProject "Marketkurly_Clone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC260382654F1DF0012AFA0 /* Debug */,
+				BBC260392654F1DF0012AFA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBC2603A2654F1DF0012AFA0 /* Build configuration list for PBXNativeTarget "Marketkurly_Clone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC2603B2654F1DF0012AFA0 /* Debug */,
+				BBC2603C2654F1DF0012AFA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBC2601E2654F1DB0012AFA0 /* Project object */;
+}
