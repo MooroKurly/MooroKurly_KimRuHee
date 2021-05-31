@@ -86,9 +86,9 @@ class TableFooterView: UIView {
     
     let snsStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = NSLayoutConstraint.Axis.horizontal
-        stackView.distribution = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
         stackView.spacing = 12.0
         return stackView
     }()
@@ -116,6 +116,7 @@ class TableFooterView: UIView {
         snsStackView.addArrangedSubview(blogButton)
         snsStackView.addArrangedSubview(naverButton)
         snsStackView.addArrangedSubview(youtubeButton)
+                
         
         introButton.snp.makeConstraints { (make) in
             make.top.equalTo(18)
@@ -137,7 +138,6 @@ class TableFooterView: UIView {
             make.leading.equalTo(12)
             make.trailing.equalTo(-15)
             make.height.equalTo(100)
-//            make.width.equalTo(303)
         }
         
         footerImage.snp.makeConstraints { (make) in
