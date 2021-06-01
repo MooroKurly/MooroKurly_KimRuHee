@@ -92,6 +92,7 @@ class TableFooterView: UIView {
         stackView.spacing = 12.0
         return stackView
     }()
+
     
     let footerLabel : UILabel = {
         let label = UILabel()

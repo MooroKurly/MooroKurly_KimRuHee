@@ -7,4 +7,6 @@ target 'Marketkurly_Clone' do
 
   # Pods for Marketkurly_Clone
   pod "SnapKit", '~> 5.0.0'
+  pod 'Then'
+  pod "DuctTape"
 end
