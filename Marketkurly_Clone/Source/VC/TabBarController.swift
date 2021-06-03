@@ -30,8 +30,8 @@ class TabBarController: UITabBarController {
         return homeTab
     }()
     
-    lazy public var recomTabBar : ViewController = {
-        let recomTabBar = ViewController()
+    lazy public var recomTabBar : RecommandViewController = {
+        let recomTabBar = RecommandViewController()
         let title = "추천"
         let defaultImage = UIImage(named: "ic_recom_unactive")?.withRenderingMode(.alwaysOriginal)
         let selectedImage = UIImage(named: "ic_recom")
@@ -43,8 +43,8 @@ class TabBarController: UITabBarController {
         return recomTabBar
     }()
     
-    lazy public var cateTabBar : ViewController = {
-        let cateTabBar = ViewController()
+    lazy public var cateTabBar : CategoryViewController = {
+        let cateTabBar = CategoryViewController()
         let title = "카테고리"
         let defaultImage = UIImage(named: "ic_category_unactive")?.withRenderingMode(.alwaysOriginal)
         let selectedImage = UIImage(named: "ic_category")
@@ -56,8 +56,8 @@ class TabBarController: UITabBarController {
         return cateTabBar
     }()
     
-    lazy public var searchTabBar : ViewController = {
-        let searchTabBar = ViewController()
+    lazy public var searchTabBar : SearchViewController = {
+        let searchTabBar = SearchViewController()
         let title = "검색"
         let defaultImage = UIImage(named: "ic_search_unactive")?.withRenderingMode(.alwaysOriginal)
         let selectedImage = UIImage(named: "ic_search")
@@ -69,8 +69,8 @@ class TabBarController: UITabBarController {
         return searchTabBar
     }()
     
-    lazy public var myTabBar : ViewController = {
-        let myTabBar = ViewController()
+    lazy public var myTabBar : MykurlyViewController = {
+        let myTabBar = MykurlyViewController()
         let title = "마이컬리"
         let defaultImage = UIImage(named: "ic_my_unactive")?.withRenderingMode(.alwaysOriginal)
         let selectedImage = UIImage(named: "ic_my")

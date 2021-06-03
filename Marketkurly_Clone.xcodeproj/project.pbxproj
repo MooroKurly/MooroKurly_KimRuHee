@@ -30,6 +30,12 @@
 		BBC260332654F1DF0012AFA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC260322654F1DF0012AFA0 /* Assets.xcassets */; };
 		BBC260362654F1DF0012AFA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC260342654F1DF0012AFA0 /* LaunchScreen.storyboard */; };
 		BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC260412654F6420012AFA0 /* BannerTableCell.swift */; };
+		BBD7D0732668D03700A68264 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D0722668D03700A68264 /* CategoryViewController.swift */; };
+		BBD7D0772668E04700A68264 /* TopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D0762668E04700A68264 /* TopHeaderView.swift */; };
+		BBD7D07B2668E9E300A68264 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */; };
+		BBD7D07F2668EB3F00A68264 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D07E2668EB3F00A68264 /* SearchViewController.swift */; };
+		BBD7D0822668EB4B00A68264 /* MykurlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D0812668EB4B00A68264 /* MykurlyViewController.swift */; };
+		BBD7D0852668EB5900A68264 /* RecommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D0842668EB5900A68264 /* RecommandViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,12 @@
 		BBC260352654F1DF0012AFA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBC260372654F1DF0012AFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBC260412654F6420012AFA0 /* BannerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableCell.swift; sourceTree = "<group>"; };
+		BBD7D0722668D03700A68264 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		BBD7D0762668E04700A68264 /* TopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderView.swift; sourceTree = "<group>"; };
+		BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
+		BBD7D07E2668EB3F00A68264 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BBD7D0812668EB4B00A68264 /* MykurlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MykurlyViewController.swift; sourceTree = "<group>"; };
+		BBD7D0842668EB5900A68264 /* RecommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandViewController.swift; sourceTree = "<group>"; };
 		DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketkurly_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +119,7 @@
 		BB4E2F4F266385A400F46A87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBD7D0762668E04700A68264 /* TopHeaderView.swift */,
 				BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */,
 			);
 			path = View;
@@ -185,8 +198,12 @@
 		BBC260442654F64F0012AFA0 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				BBC2602D2654F1DB0012AFA0 /* ViewController.swift */,
 				BB4E2F562663C71B00F46A87 /* TabBarController.swift */,
+				BBC2602D2654F1DB0012AFA0 /* ViewController.swift */,
+				BBD7D0842668EB5900A68264 /* RecommandViewController.swift */,
+				BBD7D0722668D03700A68264 /* CategoryViewController.swift */,
+				BBD7D07E2668EB3F00A68264 /* SearchViewController.swift */,
+				BBD7D0812668EB4B00A68264 /* MykurlyViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -194,6 +211,7 @@
 		BBC260452654F6540012AFA0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */,
 				BB7FC7A02660C5AF0083B1C5 /* FirstSection */,
 				BB7FC7A32660C5BD0083B1C5 /* SecondSection */,
 			);
@@ -339,22 +357,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBD7D0822668EB4B00A68264 /* MykurlyViewController.swift in Sources */,
 				BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */,
 				BB4E2F6F26656A1500F46A87 /* UIColor + Extension.swift in Sources */,
 				BB4E2F572663C71B00F46A87 /* TabBarController.swift in Sources */,
 				BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */,
+				BBD7D07B2668E9E300A68264 /* CategoryTableCell.swift in Sources */,
 				BB7FC7982660B72F0083B1C5 /* DailySaleTableCell.swift in Sources */,
 				BB7FC7A52660C6300083B1C5 /* RegretPriceTableCell.swift in Sources */,
 				BB7FC79B2660B87A0083B1C5 /* SaleDataModel.swift in Sources */,
 				BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */,
+				BBD7D0852668EB5900A68264 /* RecommandViewController.swift in Sources */,
 				BBC2602A2654F1DB0012AFA0 /* AppDelegate.swift in Sources */,
 				BBC2602C2654F1DB0012AFA0 /* SceneDelegate.swift in Sources */,
 				BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */,
 				BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */,
 				BB7FC790266033160083B1C5 /* SaleTableCell.swift in Sources */,
 				BB7FC78C26601E0A0083B1C5 /* ProductDataModel.swift in Sources */,
+				BBD7D07F2668EB3F00A68264 /* SearchViewController.swift in Sources */,
 				BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */,
 				BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */,
+				BBD7D0772668E04700A68264 /* TopHeaderView.swift in Sources */,
+				BBD7D0732668D03700A68264 /* CategoryViewController.swift in Sources */,
 				BB7FC7942660B5750083B1C5 /* DailySubTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
