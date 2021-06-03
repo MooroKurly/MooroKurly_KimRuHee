@@ -26,7 +26,7 @@ class DailySaleTableCell: UITableViewCell {
     
     let purpleView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 111.0 / 255.0, green: 3.0 / 255.0, blue: 178.0 / 255.0, alpha: 0.5)
+        view.backgroundColor = .kurlyClearPurple
         return view
     }()
     
@@ -55,14 +55,14 @@ class DailySaleTableCell: UITableViewCell {
     let percentLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        label.textColor = UIColor(red: 249.0 / 255.0, green: 98.0 / 255.0, blue: 47.0 / 255.0, alpha: 1.0)
+        label.textColor = .kurlyOrange
         return label
     }()
     
     let priceLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        label.textColor = .black
+        label.textColor = .kurlyBlack
         return label
     }()
     

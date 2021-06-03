@@ -43,7 +43,7 @@ class SaleTableCell: UITableViewCell {
         let label = UILabel()
         label.text = "쿠키부터 롤케이크까지"
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = UIColor(red: 152.0 / 255.0, green: 153.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
+        label.textColor = .kurlyTextGray
         return label
     }()
     
@@ -64,7 +64,7 @@ class SaleTableCell: UITableViewCell {
         let label = UILabel()
         label.text = "매디뷰티 브랜드 에스트라"
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = UIColor(red: 152.0 / 255.0, green: 153.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
+        label.textColor = .kurlyTextGray
         return label
     }()
     
@@ -85,7 +85,7 @@ class SaleTableCell: UITableViewCell {
         let label = UILabel()
         label.text = "컬리가 고른 한돈/한우/계육"
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = UIColor(red: 152.0 / 255.0, green: 153.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
+        label.textColor = .kurlyTextGray
         return label
     }()
     

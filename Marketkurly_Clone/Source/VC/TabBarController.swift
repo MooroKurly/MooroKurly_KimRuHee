@@ -13,7 +13,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         self.viewControllers = [homeTabBar, recomTabBar, cateTabBar, searchTabBar, myTabBar]
         
-        tabBar.tintColor = UIColor(red: 103.0 / 255.0, green: 14.0 / 255.0, blue: 134.0 / 255.0, alpha: 1.0)
+        tabBar.tintColor = .kurlyPurple
         tabBar.backgroundColor = .white
     }
     

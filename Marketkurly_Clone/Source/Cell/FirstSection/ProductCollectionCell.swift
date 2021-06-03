@@ -28,7 +28,7 @@ class ProductCollectionCell: UICollectionViewCell {
     let percentLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.textColor = UIColor(red: 249.0 / 255.0, green: 98.0 / 255.0, blue: 47.0 / 255.0, alpha: 1.0)
+        label.textColor = .kurlyOrange
         return label
     }()
     
@@ -41,7 +41,7 @@ class ProductCollectionCell: UICollectionViewCell {
     let previousPriceLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        label.textColor = UIColor(red: 152.0 / 255.0, green: 153.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
+        label.textColor = .kurlyTextGray
         return label
     }()
     

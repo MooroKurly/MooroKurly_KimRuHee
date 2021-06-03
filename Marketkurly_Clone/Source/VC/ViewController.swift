@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     let upperView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 103.0 / 255.0, green: 14.0 / 255.0, blue: 134.0 / 255.0, alpha: 1.0)
+        view.backgroundColor = .kurlyPurple
         return view
     }()
     

@@ -11,7 +11,7 @@
 		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
 		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
 		BB4E2F572663C71B00F46A87 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F562663C71B00F46A87 /* TabBarController.swift */; };
-		BB4E2F6F26656A1500F46A87 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F6E26656A1500F46A87 /* UIFont + Extension.swift */; };
+		BB4E2F6F26656A1500F46A87 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F6E26656A1500F46A87 /* UIColor + Extension.swift */; };
 		BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */; };
 		BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */; };
 		BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */; };
@@ -38,7 +38,7 @@
 		BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		BB4E2F562663C71B00F46A87 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		BB4E2F6E26656A1500F46A87 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		BB4E2F6E26656A1500F46A87 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		BB7FC77E265EC30E0083B1C5 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionCell.swift; sourceTree = "<group>"; };
 		BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableCell.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */,
-				BB4E2F6E26656A1500F46A87 /* UIFont + Extension.swift */,
+				BB4E2F6E26656A1500F46A87 /* UIColor + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */,
-				BB4E2F6F26656A1500F46A87 /* UIFont + Extension.swift in Sources */,
+				BB4E2F6F26656A1500F46A87 /* UIColor + Extension.swift in Sources */,
 				BB4E2F572663C71B00F46A87 /* TabBarController.swift in Sources */,
 				BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */,
 				BB7FC7982660B72F0083B1C5 /* DailySaleTableCell.swift in Sources */,
