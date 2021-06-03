@@ -31,9 +31,10 @@ class TableFooterView: UIView {
     
     let footerTextView : UITextView = {
         let textView = UITextView()
-        let attributedString = NSMutableAttributedString(string: "주식회사 컬리 | 대표자 : 김슬아\n개인정보보호책임자 : 이원준\n사업자등록번호 : 261-81-23567 사업자 정보확인\n통신판매업 : 제 2018-서울강남-01646 호\n주소 : 서울특별시 강남구 도산대로 16길 20, 이래빌딩 B1 ~ 4F")
+        textView.text = "주식회사 컬리 | 대표자 : 김슬아\n개인정보보호책임자 : 이원준\n사업자등록번호 : 261-81-23567 사업자 정보확인\n통신판매업 : 제 2018-서울강남-01646 호\n주소 : 서울특별시 강남구 도산대로 16길 20, 이래빌딩 B1 ~ 4F"
+        let attributedString = NSMutableAttributedString(string: textView.text!)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 3
+        paragraphStyle.lineSpacing = 10
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
         textView.attributedText = attributedString
         
@@ -96,11 +97,14 @@ class TableFooterView: UIView {
     
     let footerLabel : UILabel = {
         let label = UILabel()
+        label.text = "카카오톡 @마켓컬리 친구 추가하고 소식과 혜택을 받아보세요."
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        label.textColor = UIColor(red: 152.0 / 255.0, green: 153.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
+        label.textColor = UIColor.gray
 
-        let attributtedString = NSMutableAttributedString(string: "카카오톡 @마켓컬리 친구 추가하고 소식과 혜택을 받아보세요.")
-        attributtedString.addAttribute(.foregroundColor, value: UIColor(red: 103.0 / 255.0, green: 14.0 / 255.0, blue: 134.0 / 255.0, alpha: 1.0), range: ("카카오톡 @마켓컬리 친구 추가하고 소식과 혜택을 받아보세요." as NSString).range(of:"@마켓컬리"))
+
+        let attributtedString = NSMutableAttributedString(string: label.text!)
+        attributtedString.addAttribute(.foregroundColor, value: UIColor.purple, range: (label.text! as NSString).range(of:"@마켓컬리"))
+        
         label.attributedText = attributtedString
         
         return label
