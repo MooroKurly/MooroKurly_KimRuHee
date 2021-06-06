@@ -22,11 +22,13 @@ class CategoryViewController: UIViewController {
             view.headerTitleLabel.text = "카테고리"
         }
     
-    var cateTV : UITableView = UITableView().ductTape
+    var cateTV : UITableView = UITableView(frame: .zero, style: .grouped).ductTape
         .backgroundColor(.white)
         .reinforce { (tv) in
             tv.register(CateUpperTableCell.self, forCellReuseIdentifier: "CateUpperTableCell")
             tv.register(CategoryTableCell.self, forCellReuseIdentifier: "CategoryTableCell")
+            tv.separatorStyle = .none
+            
         }
 
     //MARK: - LifeCycle
@@ -36,7 +38,11 @@ class CategoryViewController: UIViewController {
         
         cateTV.delegate = self
         cateTV.dataSource = self
+        
+        cateTV.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
+        cateTV.sectionFooterHeight = 0
 
+        
         configureUI()
     }
     
@@ -81,6 +87,25 @@ extension CategoryViewController : UITableViewDelegate {
 
 extension CategoryViewController : UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            let view = UIView()
+            view.backgroundColor = UIColor.kurlyLightGray
+            return view
+        default:
+            let view = UIView()
+            view.backgroundColor = UIColor.kurlyLightGray
+            return view
+        }
+    }
+
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -101,7 +126,8 @@ extension CategoryViewController : UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CateUpperTableCell", for: indexPath)
                     as? CateUpperTableCell else { return UITableViewCell() }
-            
+        
+            cell.selectionStyle = .none
             cell.configureUI()
             return cell
             
@@ -110,6 +136,7 @@ extension CategoryViewController : UITableViewDataSource {
                     as? CategoryTableCell else { return UITableViewCell() }
             
             cell.backgroundColor = .white
+            cell.selectionStyle = .none
             cell.configureUI()
             cell.setData(name: menuListArray[indexPath.row])
             return cell

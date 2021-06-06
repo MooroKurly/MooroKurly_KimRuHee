@@ -20,7 +20,7 @@ class CategoryTableCell: UITableViewCell {
         .image(UIImage(named: "icBookmark"))
     
     let menuNameLabel : UILabel = UILabel().ductTape
-        .font(.systemFont(ofSize: 14, weight: .medium))
+        .font(.systemFont(ofSize: 14, weight: .regular))
         .text("채소")
         .textColor(.kurlyBlack)
     
@@ -28,6 +28,9 @@ class CategoryTableCell: UITableViewCell {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnOpenMore"), for: .normal)
         }
+    
+    let lineView : UIView = UIView().ductTape
+        .backgroundColor(.kurlyLightGray)
     
 
     //MARK: - UI
@@ -37,12 +40,12 @@ class CategoryTableCell: UITableViewCell {
         addSubview(bookmarkImage)
         addSubview(menuNameLabel)
         addSubview(openButton)
+        addSubview(lineView)
         
         bookmarkImage.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.leading.equalTo(20)
-//            make.width.equalTo(12)
-//            make.height.equalTo(16)
+
         }
         
         menuNameLabel.snp.makeConstraints { (make) in
@@ -55,6 +58,11 @@ class CategoryTableCell: UITableViewCell {
             make.trailing.equalTo(0)
         }
         
+        lineView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-0.5)
+            make.height.equalTo(0.5)
+            make.leading.trailing.equalToSuperview()
+        }
     }
     
     //MARK: - setData
