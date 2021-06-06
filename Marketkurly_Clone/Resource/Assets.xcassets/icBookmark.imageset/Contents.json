@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icBookmark.jpg",
+      "filename" : "ic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icBookmark-1.jpg",
+      "filename" : "ic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icBookmark-2.jpg",
+      "filename" : "ic@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

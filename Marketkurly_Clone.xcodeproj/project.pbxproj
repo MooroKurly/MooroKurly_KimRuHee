@@ -36,6 +36,7 @@
 		BBD7D07F2668EB3F00A68264 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D07E2668EB3F00A68264 /* SearchViewController.swift */; };
 		BBD7D0822668EB4B00A68264 /* MykurlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D0812668EB4B00A68264 /* MykurlyViewController.swift */; };
 		BBD7D0852668EB5900A68264 /* RecommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D0842668EB5900A68264 /* RecommandViewController.swift */; };
+		BBD7D08E266CD53D00A68264 /* CateUpperTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD7D08D266CD53D00A68264 /* CateUpperTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		BBD7D07E2668EB3F00A68264 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BBD7D0812668EB4B00A68264 /* MykurlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MykurlyViewController.swift; sourceTree = "<group>"; };
 		BBD7D0842668EB5900A68264 /* RecommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandViewController.swift; sourceTree = "<group>"; };
+		BBD7D08D266CD53D00A68264 /* CateUpperTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CateUpperTableCell.swift; sourceTree = "<group>"; };
 		DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketkurly_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 		BBC260452654F6540012AFA0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BBD7D08D266CD53D00A68264 /* CateUpperTableCell.swift */,
 				BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */,
 				BB7FC7A02660C5AF0083B1C5 /* FirstSection */,
 				BB7FC7A32660C5BD0083B1C5 /* SecondSection */,
@@ -369,6 +372,7 @@
 				BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */,
 				BBD7D0852668EB5900A68264 /* RecommandViewController.swift in Sources */,
 				BBC2602A2654F1DB0012AFA0 /* AppDelegate.swift in Sources */,
+				BBD7D08E266CD53D00A68264 /* CateUpperTableCell.swift in Sources */,
 				BBC2602C2654F1DB0012AFA0 /* SceneDelegate.swift in Sources */,
 				BB7FC77F265EC30E0083B1C5 /* ProductCollectionCell.swift in Sources */,
 				BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */,

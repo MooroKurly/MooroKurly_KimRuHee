@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "btn_more.png",
+      "filename" : "btn_more@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "btn_more-1.png",
+      "filename" : "btn_more@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "btn_more-2.png",
+      "filename" : "btn_more@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
