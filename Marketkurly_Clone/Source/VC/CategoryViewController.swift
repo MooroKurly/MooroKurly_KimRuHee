@@ -113,7 +113,15 @@ extension CategoryViewController : UITableViewDelegate {
 extension CategoryViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        switch section {
+        case 0:
+            return 10
+        case 1:
+            return 10
+        default:
+            return 0
+        }
+
     }
     
     
@@ -123,10 +131,14 @@ extension CategoryViewController : UITableViewDataSource {
             let view = UIView()
             view.backgroundColor = UIColor.kurlyLightGray
             return view
-        default:
+            
+        case 1:
             let view = UIView()
             view.backgroundColor = UIColor.kurlyLightGray
             return view
+            
+        default:
+            return UIView()
         }
     }
     
@@ -186,7 +198,7 @@ extension CategoryViewController : UITableViewDataSource {
                 cell.bookmarkImage.isHidden = true
                 cell.openButton.isHidden = true
                 cell.menuNameLabel.font = .systemFont(ofSize: 15, weight: .semibold)
-                cell.menuNameLabel.textColor = .kurlyBlack
+                cell.menuNameLabel.textColor = .darkGray
                 cell.setData(name: sections[indexPath.section].options[indexPath.row - 1])
                 
                 return cell
