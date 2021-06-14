@@ -31,7 +31,6 @@ class CategoryTableCell: UITableViewCell {
     
     let lineView : UIView = UIView().ductTape
         .backgroundColor(.kurlyLightGray)
-    
 
     //MARK: - UI
     
@@ -64,6 +63,7 @@ class CategoryTableCell: UITableViewCell {
             make.leading.trailing.equalToSuperview()
         }
     }
+
     
     //MARK: - setData
     
