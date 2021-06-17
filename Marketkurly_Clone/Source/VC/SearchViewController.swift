@@ -16,7 +16,6 @@ class SearchViewController: UIViewController {
             view.headerTitleLabel.text = "검색"
         }
     
-    
 
     //MARK: - LifeCycle
     

@@ -15,7 +15,7 @@ class BannerCollectionCell: UICollectionViewCell {
     
     let bannerImage : UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
