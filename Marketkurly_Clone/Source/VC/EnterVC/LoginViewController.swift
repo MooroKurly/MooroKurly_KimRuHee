@@ -24,19 +24,20 @@ class LoginViewController: UIViewController {
     
     let idTextField : UITextField = UITextField().ductTape
         .placeholder("아이디를 입력해주세요")
-        .textColor(.kurlyLightGray)
+        .textColor(.kurlyBlack)
         .font(.systemFont(ofSize: 16, weight: .semibold))
         .borderStyle(.roundedRect)
     
     let pwTextField : UITextField = UITextField().ductTape
         .placeholder("비밀번호를 입력해주세요")
-        .textColor(.kurlyLightGray)
+        .textColor(.kurlyBlack)
         .font(.systemFont(ofSize: 16, weight: .semibold))
         .borderStyle(.roundedRect)
     
     let loginButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnLogin"), for: .normal)
+            btn.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
         }
     
     let findButton : UILabel = UILabel().ductTape
@@ -65,13 +66,8 @@ class LoginViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        view.addSubview(headerView)
         headerView.addSubview(closeButton)
-        view.addSubview(idTextField)
-        view.addSubview(pwTextField)
-        view.addSubview(loginButton)
-        view.addSubview(findButton)
-        view.addSubview(joinButton)
+        view.addSubviews(headerView, idTextField, pwTextField, loginButton, findButton, joinButton)
         
         headerView.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalToSuperview()
@@ -124,6 +120,28 @@ class LoginViewController: UIViewController {
         present(nextVC, animated: true, completion: nil)
         navigationController?.pushViewController(nextVC, animated: true)
         print("ㅇ")
+    }
+    
+    @objc func login(_ sender: UIButton) {
+        
+        AuthService.shared.login(id: self.idTextField.text!, password: self.pwTextField.text!) { result in
+            switch result {
+            case .success(let msg):
+
+                if let msg = msg as? String {
+                    print("success", msg)
+                }
+            
+            case .requestErr(let msg):
+                print("requestERR", msg)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
 }
