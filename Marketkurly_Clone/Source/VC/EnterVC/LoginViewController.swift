@@ -75,7 +75,8 @@ class LoginViewController: UIViewController {
         }
         
         closeButton.snp.makeConstraints { (make) in
-            make.leading.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.bottom.equalTo(-0.5)
         }
         
         idTextField.snp.makeConstraints { (make) in
@@ -115,11 +116,11 @@ class LoginViewController: UIViewController {
     }
 
     @objc func goToJoin(_ sender: UIButton) {
+///       여기 push로 열려야 하는데 그건 안됨.. 아직
         let nextVC = JoinViewController()
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
-        navigationController?.pushViewController(nextVC, animated: true)
-        print("ㅇ")
+//        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func login(_ sender: UIButton) {

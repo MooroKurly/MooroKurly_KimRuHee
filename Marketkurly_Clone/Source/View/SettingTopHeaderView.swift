@@ -26,8 +26,8 @@ class SettingTopHeaderView: UIView {
         super.init(frame: frame)
         
         addSubview(upperView)
-        addSubview(headerTitleLabel)
         addSubview(lineView)
+        addSubview(headerTitleLabel)
        
         upperView.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalToSuperview()

@@ -18,16 +18,21 @@ class JoinViewController: UIViewController {
 
     var closeButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
-            btn.setImage(UIImage(named: "btnClose"), for: .normal)
+            btn.setImage(UIImage(named: "btnGoback"), for: .normal)
             btn.addTarget(self, action: #selector(close(_:)), for: .touchUpInside)
         }
+    
+    var mainTV = UITableView()
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        mainTV.delegate = self
+        mainTV.dataSource = self
+        
+        mainTV.register(JoinTableCell.self, forCellReuseIdentifier: "JoinTableCell")
         
         configureUI()
 
@@ -37,7 +42,9 @@ class JoinViewController: UIViewController {
     
     func configureUI() {
         
-        view.addSubview(headerView)
+        view.backgroundColor = .white
+        
+        view.addSubviews(headerView, mainTV)
         headerView.addSubview(closeButton)
         
         headerView.snp.makeConstraints { (make) in
@@ -46,12 +53,70 @@ class JoinViewController: UIViewController {
         }
         
         closeButton.snp.makeConstraints { (make) in
-            make.leading.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.bottom.equalTo(-0.5)
+        }
+        
+        mainTV.snp.makeConstraints { (make) in
+            make.top.equalTo(headerView.snp.bottom)
+            make.leading.bottom.trailing.equalToSuperview()
         }
     }
+    
+    // MARK: - Function
     
     @objc func close(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension JoinViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 1350
+        default:
+            return 100
+        }
+        
+    }
+    
+}
+
+extension JoinViewController : UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        default:
+            return 1
+        }
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "JoinTableCell", for: indexPath) as? JoinTableCell else { return UITableViewCell() }
+            cell.configureUI()
+            cell.selectionStyle = .none
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "JoinTableCell", for: indexPath) as? JoinTableCell else { return UITableViewCell() }
+//            cell.configureUI()
+            cell.backgroundColor = .orange
+            cell.selectionStyle = .none
+            return cell
+        }
+        
+    }
+    
+    
 }
