@@ -13,6 +13,7 @@
 		5B1191BC267B2DA40024F007 /* SettingTopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191BB267B2DA40024F007 /* SettingTopHeaderView.swift */; };
 		5B1191BF267B33910024F007 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191BE267B33910024F007 /* JoinViewController.swift */; };
 		5B1191C3267C3AFC0024F007 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1191C2267C3AFC0024F007 /* Alamofire */; };
+		5B1191C7267C3E090024F007 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191C6267C3E090024F007 /* APIConstants.swift */; };
 		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
 		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
 		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
@@ -52,6 +53,7 @@
 		5B1191B7267B2D7F0024F007 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B1191BB267B2DA40024F007 /* SettingTopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTopHeaderView.swift; sourceTree = "<group>"; };
 		5B1191BE267B33910024F007 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		5B1191C6267C3E090024F007 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			path = EnterVC;
 			sourceTree = "<group>";
 		};
+		5B1191C5267C3D9E0024F007 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5B1191C6267C3E090024F007 /* APIConstants.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		BB293ECB26637071009A9298 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		BB293ECC266370C4009A9298 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5B1191C5267C3D9E0024F007 /* Network */,
 				BB7FC78A26601DF80083B1C5 /* Model */,
 				BB4E2F4F266385A400F46A87 /* View */,
 				BBC260442654F64F0012AFA0 /* VC */,
@@ -413,6 +424,7 @@
 				5B1191BC267B2DA40024F007 /* SettingTopHeaderView.swift in Sources */,
 				BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */,
 				BBD7D0772668E04700A68264 /* TopHeaderView.swift in Sources */,
+				5B1191C7267C3E090024F007 /* APIConstants.swift in Sources */,
 				5B1191B2267B25540024F007 /* MykurlyUpperTableCell.swift in Sources */,
 				BBD7D0732668D03700A68264 /* CategoryViewController.swift in Sources */,
 				BB7FC7942660B5750083B1C5 /* DailySubTableCell.swift in Sources */,
