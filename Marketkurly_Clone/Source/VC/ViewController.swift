@@ -72,6 +72,8 @@ class ViewController: UIViewController {
         mainTV.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
         mainTV.sectionHeaderHeight = 0
         
+//        UINavigationController.init(rootViewController: ViewController)
+        
         
         // section == 0 에 해당하는 cell
         mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")

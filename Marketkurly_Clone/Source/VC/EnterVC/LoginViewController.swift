@@ -120,8 +120,10 @@ class LoginViewController: UIViewController {
 
     @objc func goToJoin(_ sender: UIButton) {
         let nextVC = JoinViewController()
-        
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true, completion: nil)
         navigationController?.pushViewController(nextVC, animated: true)
+        print("ㅇ")
     }
     
 }

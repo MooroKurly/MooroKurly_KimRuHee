@@ -12,6 +12,7 @@
 		5B1191B8267B2D7F0024F007 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191B7267B2D7F0024F007 /* LoginViewController.swift */; };
 		5B1191BC267B2DA40024F007 /* SettingTopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191BB267B2DA40024F007 /* SettingTopHeaderView.swift */; };
 		5B1191BF267B33910024F007 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191BE267B33910024F007 /* JoinViewController.swift */; };
+		5B1191C3267C3AFC0024F007 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1191C2267C3AFC0024F007 /* Alamofire */; };
 		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
 		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
 		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
@@ -90,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB4739826667F8E00076BB0 /* DuctTape in Frameworks */,
+				5B1191C3267C3AFC0024F007 /* Alamofire in Frameworks */,
 				BBB4739C26667FCC00076BB0 /* Then in Frameworks */,
 				B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */,
 			);
@@ -282,6 +284,7 @@
 			packageProductDependencies = (
 				BBB4739726667F8E00076BB0 /* DuctTape */,
 				BBB4739B26667FCC00076BB0 /* Then */,
+				5B1191C2267C3AFC0024F007 /* Alamofire */,
 			);
 			productName = Marketkurly_Clone;
 			productReference = BBC260262654F1DB0012AFA0 /* Marketkurly_Clone.app */;
@@ -313,6 +316,7 @@
 			packageReferences = (
 				BBB4739626667F8E00076BB0 /* XCRemoteSwiftPackageReference "DuctTape" */,
 				BBB4739A26667FCC00076BB0 /* XCRemoteSwiftPackageReference "Then" */,
+				5B1191C1267C3AFC0024F007 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BBC260272654F1DB0012AFA0 /* Products */;
 			projectDirPath = "";
@@ -617,6 +621,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B1191C1267C3AFC0024F007 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
 		BBB4739626667F8E00076BB0 /* XCRemoteSwiftPackageReference "DuctTape" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marty-suzuki/DuctTape.git";
@@ -636,6 +648,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B1191C2267C3AFC0024F007 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B1191C1267C3AFC0024F007 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		BBB4739726667F8E00076BB0 /* DuctTape */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BBB4739626667F8E00076BB0 /* XCRemoteSwiftPackageReference "DuctTape" */;
