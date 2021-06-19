@@ -1,5 +1,5 @@
 //
-//  idCheckDataModel.swift
+//  IdCheckDataModel.swift
 //  Marketkurly_Clone
 //
 //  Created by Thisisme Hi on 2021/06/20.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - idCheckDataModel
-struct idCheckDataModel: Codable {
+// MARK: - IdCheckDataModel
+struct IdCheckDataModel: Codable {
     let msg: String
     let isValid: Bool
     

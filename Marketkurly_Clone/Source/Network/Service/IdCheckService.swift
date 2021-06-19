@@ -46,7 +46,7 @@ struct IdCheckService {
         
         let decoder = JSONDecoder()
         
-        guard let decodedData = try? decoder.decode(idCheckDataModel.self, from: data)
+        guard let decodedData = try? decoder.decode(IdCheckDataModel.self, from: data)
         else { return .pathErr }
         
         switch statusCode {

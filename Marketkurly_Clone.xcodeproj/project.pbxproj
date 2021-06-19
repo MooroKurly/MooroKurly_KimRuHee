@@ -23,8 +23,11 @@
 		5B1191EB267DFA320024F007 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191EA267DFA320024F007 /* UITextField + Extension.swift */; };
 		5B1191F0267E0E270024F007 /* JoinDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191EF267E0E270024F007 /* JoinDataModel.swift */; };
 		5B1191F3267E0E300024F007 /* JoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191F2267E0E300024F007 /* JoinService.swift */; };
-		5B1191F7267E713B0024F007 /* idCheckDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191F6267E713A0024F007 /* idCheckDataModel.swift */; };
+		5B1191F7267E713B0024F007 /* IdCheckDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191F6267E713A0024F007 /* IdCheckDataModel.swift */; };
 		5B1191FA267E71FD0024F007 /* IdCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191F9267E71FD0024F007 /* IdCheckService.swift */; };
+		5B1191FF267E75600024F007 /* BannerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191FE267E75600024F007 /* BannerDataModel.swift */; };
+		5B119203267E76070024F007 /* GetBannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119202267E76070024F007 /* GetBannerService.swift */; };
+		5B119208267E786F0024F007 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5B119207267E786F0024F007 /* Kingfisher */; };
 		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
 		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
 		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
@@ -74,8 +77,10 @@
 		5B1191EA267DFA320024F007 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		5B1191EF267E0E270024F007 /* JoinDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDataModel.swift; sourceTree = "<group>"; };
 		5B1191F2267E0E300024F007 /* JoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinService.swift; sourceTree = "<group>"; };
-		5B1191F6267E713A0024F007 /* idCheckDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idCheckDataModel.swift; sourceTree = "<group>"; };
+		5B1191F6267E713A0024F007 /* IdCheckDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckDataModel.swift; sourceTree = "<group>"; };
 		5B1191F9267E71FD0024F007 /* IdCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdCheckService.swift; sourceTree = "<group>"; };
+		5B1191FE267E75600024F007 /* BannerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDataModel.swift; sourceTree = "<group>"; };
+		5B119202267E76070024F007 /* GetBannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBannerService.swift; sourceTree = "<group>"; };
 		5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 				5B1191C3267C3AFC0024F007 /* Alamofire in Frameworks */,
 				BBB4739C26667FCC00076BB0 /* Then in Frameworks */,
 				B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */,
+				5B119208267E786F0024F007 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,14 +144,32 @@
 			children = (
 				5B1191CA267C3F550024F007 /* NetworkResult.swift */,
 				5B1191C6267C3E090024F007 /* APIConstants.swift */,
+				5B1191FC267E746A0024F007 /* DataModel */,
+				5B1191FD267E74860024F007 /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5B1191FC267E746A0024F007 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
 				5B1191CD267C3FA00024F007 /* LoginDataModel.swift */,
 				5B1191EF267E0E270024F007 /* JoinDataModel.swift */,
-				5B1191F6267E713A0024F007 /* idCheckDataModel.swift */,
+				5B1191F6267E713A0024F007 /* IdCheckDataModel.swift */,
+				5B1191FE267E75600024F007 /* BannerDataModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		5B1191FD267E74860024F007 /* Service */ = {
+			isa = PBXGroup;
+			children = (
 				5B1191D2267C43720024F007 /* LoginService.swift */,
 				5B1191F2267E0E300024F007 /* JoinService.swift */,
 				5B1191F9267E71FD0024F007 /* IdCheckService.swift */,
+				5B119202267E76070024F007 /* GetBannerService.swift */,
 			);
-			path = Network;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BB293ECB26637071009A9298 /* Resource */ = {
@@ -329,6 +353,7 @@
 				BBB4739726667F8E00076BB0 /* DuctTape */,
 				BBB4739B26667FCC00076BB0 /* Then */,
 				5B1191C2267C3AFC0024F007 /* Alamofire */,
+				5B119207267E786F0024F007 /* Kingfisher */,
 			);
 			productName = Marketkurly_Clone;
 			productReference = BBC260262654F1DB0012AFA0 /* Marketkurly_Clone.app */;
@@ -361,6 +386,7 @@
 				BBB4739626667F8E00076BB0 /* XCRemoteSwiftPackageReference "DuctTape" */,
 				BBB4739A26667FCC00076BB0 /* XCRemoteSwiftPackageReference "Then" */,
 				5B1191C1267C3AFC0024F007 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5B119206267E786F0024F007 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = BBC260272654F1DB0012AFA0 /* Products */;
 			projectDirPath = "";
@@ -458,12 +484,13 @@
 				5B1191EB267DFA320024F007 /* UITextField + Extension.swift in Sources */,
 				5B1191BF267B33910024F007 /* JoinViewController.swift in Sources */,
 				BB7FC78C26601E0A0083B1C5 /* ProductDataModel.swift in Sources */,
+				5B1191FF267E75600024F007 /* BannerDataModel.swift in Sources */,
 				BBD7D07F2668EB3F00A68264 /* SearchViewController.swift in Sources */,
 				5B1191E6267DC4C70024F007 /* JoinSecondTableView.swift in Sources */,
 				BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */,
 				5B1191BC267B2DA40024F007 /* SettingTopHeaderView.swift in Sources */,
 				5B1191CB267C3F550024F007 /* NetworkResult.swift in Sources */,
-				5B1191F7267E713B0024F007 /* idCheckDataModel.swift in Sources */,
+				5B1191F7267E713B0024F007 /* IdCheckDataModel.swift in Sources */,
 				BB7FC78426600BA10083B1C5 /* BannerCollectionCell.swift in Sources */,
 				5B1191D3267C43720024F007 /* LoginService.swift in Sources */,
 				BBD7D0772668E04700A68264 /* TopHeaderView.swift in Sources */,
@@ -471,6 +498,7 @@
 				5B1191C7267C3E090024F007 /* APIConstants.swift in Sources */,
 				5B1191B2267B25540024F007 /* MykurlyUpperTableCell.swift in Sources */,
 				BBD7D0732668D03700A68264 /* CategoryViewController.swift in Sources */,
+				5B119203267E76070024F007 /* GetBannerService.swift in Sources */,
 				BB7FC7942660B5750083B1C5 /* DailySubTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,6 +713,14 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		5B119206267E786F0024F007 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
 		BBB4739626667F8E00076BB0 /* XCRemoteSwiftPackageReference "DuctTape" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marty-suzuki/DuctTape.git";
@@ -708,6 +744,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B1191C1267C3AFC0024F007 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		5B119207267E786F0024F007 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B119206267E786F0024F007 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		BBB4739726667F8E00076BB0 /* DuctTape */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -9,6 +9,7 @@ import Foundation
 
 struct APIConstants {
     
+    // baseURL
     static let baseURL = "http://3.139.195.175:5000"
     
     // 로그인 URL
@@ -19,4 +20,7 @@ struct APIConstants {
     
     // 아이디 체크 URL
     static let idCheckURL = baseURL + "/users/id-check"
+    
+    // 광고 배너 URL
+    static let bannerURL = baseURL + "/main/banners"
 }
