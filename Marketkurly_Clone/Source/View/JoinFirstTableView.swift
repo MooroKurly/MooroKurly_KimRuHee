@@ -137,6 +137,7 @@ class JoinFirstTableView: UIView {
             tf.layer.cornerRadius = 5.0
             tf.placeholderPadding()
             tf.keyboardType = .numberPad
+            tf.addDoneButtonOnKeyboard()
         }
     
     var getNumberButton : UIButton = UIButton().ductTape
@@ -191,6 +192,7 @@ class JoinFirstTableView: UIView {
             tf.font = .systemFont(ofSize: 16, weight: .semibold)
             tf.textAlignment = .center
             tf.keyboardType = .numberPad
+            tf.addDoneButtonOnKeyboard()
         }
     
     var monthTextField : UITextField = UITextField().ductTape
@@ -200,6 +202,7 @@ class JoinFirstTableView: UIView {
             tf.font = .systemFont(ofSize: 16, weight: .semibold)
             tf.textAlignment = .center
             tf.keyboardType = .numberPad
+            tf.addDoneButtonOnKeyboard()
         }
     
     var dayTextField : UITextField = UITextField().ductTape
@@ -209,6 +212,7 @@ class JoinFirstTableView: UIView {
             tf.font = .systemFont(ofSize: 16, weight: .semibold)
             tf.textAlignment = .center
             tf.keyboardType = .numberPad
+            tf.addDoneButtonOnKeyboard()
         }
     
     var sexLabel : UILabel = UILabel().ductTape
