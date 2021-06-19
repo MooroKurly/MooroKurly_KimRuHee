@@ -28,12 +28,14 @@ class JoinFirstTableView: UIView {
             tf.layer.borderWidth = 1.0
             tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             tf.layer.cornerRadius = 5.0
+            tf.text = "yeseul"
             tf.placeholderPadding()
         }
     
     var checkButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnDoublecheck"), for: .normal)
+            btn.addTarget(self, action: #selector(pressCheckButton(_:)), for: .touchUpInside)
         }
     
     var pwLabel : UILabel = UILabel().ductTape
@@ -54,6 +56,7 @@ class JoinFirstTableView: UIView {
             tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             tf.layer.cornerRadius = 5.0
             tf.placeholderPadding()
+            tf.text = "1234"
             tf.isSecureTextEntry = true
         }
     
@@ -75,6 +78,7 @@ class JoinFirstTableView: UIView {
             tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             tf.layer.cornerRadius = 5.0
             tf.placeholderPadding()
+            tf.text = "1234"
             tf.isSecureTextEntry = true
         }
     
@@ -95,6 +99,7 @@ class JoinFirstTableView: UIView {
             tf.layer.borderWidth = 1.0
             tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             tf.layer.cornerRadius = 5.0
+            tf.text = "예슬"
             tf.placeholderPadding()
         }
     
@@ -115,6 +120,7 @@ class JoinFirstTableView: UIView {
             tf.layer.borderWidth = 1.0
             tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             tf.layer.cornerRadius = 5.0
+            tf.text = "yeseul@mooro.com"
             tf.placeholderPadding()
         }
     
@@ -137,6 +143,7 @@ class JoinFirstTableView: UIView {
             tf.layer.cornerRadius = 5.0
             tf.placeholderPadding()
             tf.keyboardType = .numberPad
+            tf.text = "01012341234"
             tf.addDoneButtonOnKeyboard()
         }
     
@@ -162,6 +169,7 @@ class JoinFirstTableView: UIView {
             tf.layer.borderWidth = 1.0
             tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             tf.layer.cornerRadius = 5.0
+            tf.text = "서울시 종로구"
             tf.placeholderPadding()
         }
     
@@ -183,6 +191,19 @@ class JoinFirstTableView: UIView {
             view.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             view.layer.cornerRadius = 5.0
             view.backgroundColor = .white
+        }
+    
+    var birthTextField : UITextField = UITextField().ductTape
+        .reinforce { (tf) in
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholder = "YYYY / MM / YY"
+            tf.font = .systemFont(ofSize: 16, weight: .semibold)
+            tf.textAlignment = .center
+            tf.keyboardType = .numberPad
+            tf.text = "1998-04-25"
+            tf.addDoneButtonOnKeyboard()
         }
     
     var yearTextField : UITextField = UITextField().ductTape
@@ -226,7 +247,7 @@ class JoinFirstTableView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
-            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressBoyButton(_:)), for: .touchUpInside)
         }
     
     var boyLabel : UILabel = UILabel().ductTape
@@ -237,7 +258,7 @@ class JoinFirstTableView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
-            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressGirlButton(_:)), for: .touchUpInside)
         }
     
     var girlLabel : UILabel = UILabel().ductTape
@@ -248,7 +269,7 @@ class JoinFirstTableView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
-            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressNoButton(_:)), for: .touchUpInside)
         }
     
     var noLabel : UILabel = UILabel().ductTape
@@ -315,13 +336,13 @@ class JoinFirstTableView: UIView {
         monthTextField.delegate = self
         dayTextField.delegate = self
         
-        
+            
         addSubviews(idLabel, idTextField, checkButton,
                     pwLabel, pwTextField, pwCheckLabel, pwCheckTextField,
                     nameLabel, nameTextField, emailLabel, emailTextField,
                     phoneLabel, phoneTextField, getNumberButton,
                     addressLabel, addressTextField, addressInfoLabel,
-                    birthdayLabel, birthdayBoxView, sexLabel,
+                    birthdayLabel, birthTextField, sexLabel,
                     boyToggleButton, boyLabel, girlToggleButton, girlLabel,
                     noToggleButton, noLabel, alphaLabel,
                     recommToggleButton, recommIDLabel, eventToggleButton, eventLabel)
@@ -434,34 +455,34 @@ class JoinFirstTableView: UIView {
             make.leading.equalTo(20)
         }
         
-        birthdayBoxView.snp.makeConstraints { (make) in
+        birthTextField.snp.makeConstraints { (make) in
             make.top.equalTo(birthdayLabel.snp.bottom).offset(10)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
             make.height.equalTo(48)
         }
         
-        yearTextField.snp.makeConstraints { (make) in
-            make.top.leading.bottom.equalToSuperview()
-            make.height.equalTo(48)
-            make.width.equalTo(108)
-        }
-        
-        monthTextField.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
-            make.leading.equalTo(yearTextField.snp.trailing)
-            make.trailing.equalTo(dayTextField.snp.leading)
-            make.height.equalTo(48)
-        }
-        
-        dayTextField.snp.makeConstraints { (make) in
-            make.top.bottom.trailing.equalToSuperview()
-            make.height.equalTo(48)
-            make.width.equalTo(108)
-        }
+//        yearTextField.snp.makeConstraints { (make) in
+//            make.top.leading.bottom.equalToSuperview()
+//            make.height.equalTo(48)
+//            make.width.equalTo(108)
+//        }
+//
+//        monthTextField.snp.makeConstraints { (make) in
+//            make.top.bottom.equalToSuperview()
+//            make.leading.equalTo(yearTextField.snp.trailing)
+//            make.trailing.equalTo(dayTextField.snp.leading)
+//            make.height.equalTo(48)
+//        }
+//
+//        dayTextField.snp.makeConstraints { (make) in
+//            make.top.bottom.trailing.equalToSuperview()
+//            make.height.equalTo(48)
+//            make.width.equalTo(108)
+//        }
         
         sexLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(birthdayBoxView.snp.bottom).offset(24)
+            make.top.equalTo(birthTextField.snp.bottom).offset(24)
             make.leading.equalTo(20)
         }
         
@@ -520,9 +541,37 @@ class JoinFirstTableView: UIView {
             make.leading.equalTo(recommToggleButton.snp.trailing).offset(6)
         }
         
+        
     }
     
     // MARK: - Function
+    
+    // 중복 확인 버튼
+    
+    @objc func pressCheckButton(_ sender: UIButton) {
+        
+    }
+    
+    // 남자 선택 버튼
+    @objc func pressBoyButton(_ sender: UIButton) {
+        boyToggleButton.isSelected = true
+        girlToggleButton.isSelected = false
+        noToggleButton.isSelected = false
+    }
+    
+    // 여자 선택 버튼
+    @objc func pressGirlButton(_ sender: UIButton) {
+        boyToggleButton.isSelected = false
+        girlToggleButton.isSelected = true
+        noToggleButton.isSelected = false
+    }
+    
+    // 선택안함 버튼
+    @objc func pressNoButton(_ sender: UIButton) {
+        boyToggleButton.isSelected = false
+        girlToggleButton.isSelected = false
+        noToggleButton.isSelected = true
+    }
     
     @objc func selectOption(_ sender: UIButton) {
         if sender.isSelected {
@@ -531,6 +580,11 @@ class JoinFirstTableView: UIView {
             sender.isSelected = true
         }
         print("d")
+    }
+    
+    // 화면 터치 시에 키보드 dismiss
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
     }
 
     required init?(coder: NSCoder) {
@@ -604,17 +658,11 @@ extension JoinFirstTableView : UITextFieldDelegate {
             addressTextField.becomeFirstResponder()
             
         case addressTextField:
-            yearTextField.becomeFirstResponder()
-            
-        case yearTextField:
-            monthTextField.becomeFirstResponder()
-            
-        case monthTextField:
-            dayTextField.becomeFirstResponder()
+            birthTextField.becomeFirstResponder()
             
         // 여기는 dayTextField가 마지막이니까 return 누르면 키보드 dismiss
         default:
-            dayTextField.resignFirstResponder()
+            birthTextField.resignFirstResponder()
             
         }
         return true
@@ -646,7 +694,7 @@ extension JoinFirstTableView : UITextFieldDelegate {
             addressTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
             
         default:
-            birthdayBoxView.layer.borderColor = UIColor.kurlyBlack.cgColor
+            birthTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
         }
         
     }
@@ -676,7 +724,7 @@ extension JoinFirstTableView : UITextFieldDelegate {
             addressTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             
         default:
-            birthdayBoxView.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            birthTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             
         }
     }

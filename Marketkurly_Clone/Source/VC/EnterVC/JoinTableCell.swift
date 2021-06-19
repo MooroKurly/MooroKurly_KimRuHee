@@ -38,6 +38,8 @@ class JoinTableCell: UITableViewCell {
             make.top.leading.bottom.trailing.equalToSuperview()
         }
         
+        
+        
     }
 
     override func awakeFromNib() {

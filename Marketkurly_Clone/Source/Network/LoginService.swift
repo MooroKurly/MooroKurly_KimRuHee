@@ -1,5 +1,5 @@
 //
-//  AuthService.swift
+//  LoginService.swift
 //  Marketkurly_Clone
 //
 //  Created by Thisisme Hi on 2021/06/18.
@@ -8,9 +8,9 @@
 import Foundation
 import Alamofire
 
-struct AuthService {
+struct LoginService {
     
-    static let shared = AuthService()
+    static let shared = LoginService()
     
     private func makeParameter(id : String, password : String) -> Parameters {
         return ["id" : id,
@@ -24,7 +24,10 @@ struct AuthService {
         let URL = APIConstants.loginURL
         let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
-        let dataRequest = AF.request(URL, method: .post, parameters: makeParameter(id: id, password: password),encoding: JSONEncoding.default, headers: header)
+        let dataRequest = AF.request(URL, method: .post,
+                                     parameters: makeParameter(id: id, password: password),
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
         
         dataRequest.responseData { dataResponse in
             

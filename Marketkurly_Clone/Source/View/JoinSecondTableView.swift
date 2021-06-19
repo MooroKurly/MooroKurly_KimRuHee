@@ -26,7 +26,8 @@ class JoinSecondTableView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnUncheck"), for: .normal)
             btn.setImage(UIImage(named: "btnCheck"), for: .selected)
-            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressTermCheckButton(_:)), for: .touchUpInside)
+//            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
         }
   
     
@@ -333,23 +334,93 @@ class JoinSecondTableView: UIView {
             make.trailing.equalTo(-20)
             make.height.equalTo(50)
         }
+        
+
     }
     
     // MARK: - Function
-    
+        
+    // 동의 버튼
     @objc func selectOption(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
         } else {
             sender.isSelected = true
         }
+    }
+    
+    // 전체 동의 버튼
+    @objc func pressTermCheckButton(_ sender: UIButton) {
+        if sender.isSelected {
+            termCheckButton.isSelected = false
+            firstCheckButton.isSelected = false
+            secondCheckButton.isSelected = false
+            thirdCheckButton.isSelected = false
+            fourthCheckButton.isSelected = false
+            smsCheckButton.isSelected = false
+            emailCheckButton.isSelected = false
+            ageCheckButton.isSelected = false
+            
+        } else {
+            termCheckButton.isSelected = true
+            firstCheckButton.isSelected = true
+            secondCheckButton.isSelected = true
+            thirdCheckButton.isSelected = true
+            fourthCheckButton.isSelected = true
+            smsCheckButton.isSelected = true
+            emailCheckButton.isSelected = true
+            ageCheckButton.isSelected = true
+            
+        }
         
     }
     
+    // 회원가입 버튼
     @objc func joinAction(_ sender: UIButton) {
         
+        var gender = String()
         
+        if JoinFirstTableView().boyToggleButton.isSelected {
+            gender = "남"
+        } else if JoinFirstTableView().girlToggleButton.isSelected {
+            gender = "여"
+        }
+       
+        JoinService.shared.join(id: JoinFirstTableView().idTextField.text!,
+                                password: JoinFirstTableView().pwTextField.text!,
+                                name: JoinFirstTableView().nameTextField.text!,
+                                email: JoinFirstTableView().emailTextField.text!,
+                                phone: JoinFirstTableView().phoneTextField.text!,
+                                address: JoinFirstTableView().addressTextField.text!,
+                                birth: JoinFirstTableView().birthTextField.text!,
+                                gender: gender) { result in
+            
+            switch result {
+            case .success(let msg):
+                if let msg = msg as? String {
+                    print(msg)
+                    
+                }
+            
+            case .requestErr(let msg):
+                if let msg = msg as? String {
+                    print(msg)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+            
+        }
         
+    }
+    
+    // 화면 터치 시에 키보드 dismiss
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
     }
     
     required init?(coder: NSCoder) {

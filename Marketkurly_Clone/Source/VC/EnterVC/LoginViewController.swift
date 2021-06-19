@@ -159,7 +159,7 @@ class LoginViewController: UIViewController {
     
     @objc func loginAction(_ sender: UIButton) {
         
-        AuthService.shared.login(id: self.idTextField.text!, password: self.pwTextField.text!) { result in
+        LoginService.shared.login(id: self.idTextField.text!, password: self.pwTextField.text!) { result in
             switch result {
             case .success(let msg):
 

@@ -69,11 +69,7 @@ class JoinViewController: UIViewController {
     @objc func close(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    // 화면 터치 시에 키보드 dismiss
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+
 }
 
 // MARK: - UITableViewDelegate
