@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     var closeButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnClose"), for: .normal)
-            btn.addTarget(self, action: #selector(close(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(closeAction(_:)), for: .touchUpInside)
         }
     
     let idTextField : UITextField = UITextField().ductTape
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     let loginButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnLogin"), for: .normal)
-            btn.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
         }
     
     let findButton : UILabel = UILabel().ductTape
@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
     let joinButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnSignup"), for: .normal)
-            btn.addTarget(self, action: #selector(goToJoin(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(goToJoinAction(_:)), for: .touchUpInside)
         }
     
     // MARK: - Lifecycle
@@ -111,11 +111,11 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc func close(_ sender: UIButton) {
+    @objc func closeAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc func goToJoin(_ sender: UIButton) {
+    @objc func goToJoinAction(_ sender: UIButton) {
 ///       여기 push로 열려야 하는데 그건 안됨.. 아직
         let nextVC = JoinViewController()
         nextVC.modalPresentationStyle = .fullScreen
@@ -123,7 +123,7 @@ class LoginViewController: UIViewController {
 //        navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    @objc func login(_ sender: UIButton) {
+    @objc func loginAction(_ sender: UIButton) {
         
         AuthService.shared.login(id: self.idTextField.text!, password: self.pwTextField.text!) { result in
             switch result {
@@ -132,6 +132,8 @@ class LoginViewController: UIViewController {
                 if let msg = msg as? String {
                     print("success", msg)
                 }
+                
+                self.dismiss(animated: true, completion: nil)
             
             case .requestErr(let msg):
                 print("requestERR", msg)

@@ -13,15 +13,28 @@ class JoinTableCell: UITableViewCell {
     
     // MARK: - Property
     
-    var textFieldView = JoinTextFieldView()
+    var firstView = JoinFirstTableView()
     
+    var secondView = JoinSecondTableView()
+    
+        
     // MARK: - UI
     
-    func configureUI() {
+    func configureFirstCellUI() {
         
-        addSubview(textFieldView)
+        addSubview(firstView)
         
-        textFieldView.snp.makeConstraints { (make) in
+        firstView.snp.makeConstraints { (make) in
+            make.top.leading.bottom.trailing.equalToSuperview()
+        }
+        
+    }
+    
+    func configureSecondCellUI() {
+        
+        addSubview(secondView)
+        
+        secondView.snp.makeConstraints { (make) in
             make.top.leading.bottom.trailing.equalToSuperview()
         }
         

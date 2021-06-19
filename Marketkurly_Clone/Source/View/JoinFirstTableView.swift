@@ -1,16 +1,16 @@
 //
-//  JoinTextFieldView.swift
+//  JoinFirstTableView.swift
 //  Marketkurly_Clone
 //
-//  Created by Thisisme Hi on 2021/06/18.
+//  Created by Thisisme Hi on 2021/06/19.
 //
 
 import UIKit
 
-class JoinTextFieldView: UIView {
+class JoinFirstTableView: UIView {
     
     // MARK: - Property
-    
+
     var idLabel : UILabel = UILabel().ductTape
         .reinforce { (label) in
             label.text = "아이디*"
@@ -177,6 +177,7 @@ class JoinTextFieldView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
+            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
         }
     
     var boyLabel : UILabel = UILabel().ductTape
@@ -187,6 +188,7 @@ class JoinTextFieldView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
+            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
         }
     
     var girlLabel : UILabel = UILabel().ductTape
@@ -197,6 +199,7 @@ class JoinTextFieldView: UIView {
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
+            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
         }
     
     var noLabel : UILabel = UILabel().ductTape
@@ -205,8 +208,9 @@ class JoinTextFieldView: UIView {
     
     var alphaLabel : UILabel = UILabel().ductTape
         .reinforce { (label) in
-            label.text = "추가입력 사항 \n추천인 아이디와 참여 이벤트명 중 하나만 선택 가능합니다."
+            label.text = "추가입력 사항\n추천인 아이디와 참여 이벤트명 중 하나만 선택 가능합니다."
             label.font = .systemFont(ofSize: 14, weight: .semibold)
+            label.numberOfLines = 0
             
             let attributedString = NSMutableAttributedString(string: label.text!)
             attributedString.addAttribute(.foregroundColor, value: UIColor.kurlyDarkGray,
@@ -214,35 +218,37 @@ class JoinTextFieldView: UIView {
             attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12),
                                           range: (label.text! as NSString).range(of:"추천인 아이디와 참여 이벤트명 중 하나만 선택 가능합니다."))
             let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 3
+            paragraphStyle.lineSpacing = 8
             attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
             
             label.attributedText = attributedString
         }
-        
+    
     
     var recommToggleButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
-    }
+            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
+        }
     
     var recommIDLabel : UILabel = UILabel().ductTape
-            .text("추천인 아이디")
-            .font(.systemFont(ofSize: 16, weight: .semibold))
+        .text("추천인 아이디")
+        .font(.systemFont(ofSize: 16, weight: .semibold))
     
     var eventToggleButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnToggleOff"), for: .normal)
             btn.setImage(UIImage(named: "btnToggleOn"), for: .selected)
-    }
+            btn.addTarget(self, action: #selector(selectOption(_:)), for: .touchUpInside)
+        }
     
     var eventLabel : UILabel = UILabel().ductTape
-            .text("참여 이벤트명")
-            .font(.systemFont(ofSize: 16, weight: .semibold))
+        .text("참여 이벤트명")
+        .font(.systemFont(ofSize: 16, weight: .semibold))
     
     
-    // MARK: - addView
+    // MARK: - UI
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -332,14 +338,14 @@ class JoinTextFieldView: UIView {
         phoneTextField.snp.makeConstraints { (make) in
             make.top.equalTo(phoneLabel.snp.bottom).offset(10)
             make.leading.equalTo(20)
-//            make.trailing.equalTo(getNumberButton.snp.leading)
+            //            make.trailing.equalTo(getNumberButton.snp.leading)
             make.height.equalTo(48)
             
         }
         
         getNumberButton.snp.makeConstraints { (make) in
             make.top.equalTo(phoneLabel.snp.bottom).offset(10)
-//            make.leading.equalTo(phoneTextField.snp.trailing).offset(8)
+            //            make.leading.equalTo(phoneTextField.snp.trailing).offset(8)
             make.trailing.equalTo(-20)
         }
         
@@ -365,12 +371,93 @@ class JoinTextFieldView: UIView {
             make.leading.equalTo(20)
         }
         
+        birthdayLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(addressInfoLabel.snp.bottom).offset(25)
+            make.leading.equalTo(20)
+        }
         
+        birthdayTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(birthdayLabel.snp.bottom).offset(10)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+            make.height.equalTo(48)
+        }
         
+        sexLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(birthdayTextField.snp.bottom).offset(24)
+            make.leading.equalTo(20)
+        }
         
+        boyToggleButton.snp.makeConstraints { (make) in
+            make.top.equalTo(sexLabel.snp.bottom).offset(13)
+            make.leading.equalTo(14)
+        }
+        
+        boyLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(sexLabel.snp.bottom).offset(22)
+            make.leading.equalTo(boyToggleButton.snp.trailing).offset(6)
+        }
+        
+        girlToggleButton.snp.makeConstraints { (make) in
+            make.top.equalTo(boyToggleButton.snp.bottom).offset(12)
+            make.leading.equalTo(14)
+        }
+        
+        girlLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(boyLabel.snp.bottom).offset(28)
+            make.leading.equalTo(girlToggleButton.snp.trailing).offset(6)
+        }
+        
+        noToggleButton.snp.makeConstraints { (make) in
+            make.top.equalTo(girlToggleButton.snp.bottom).offset(12)
+            make.leading.equalTo(14)
+        }
+        
+        noLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(girlLabel.snp.bottom).offset(28)
+            make.leading.equalTo(noToggleButton.snp.trailing).offset(6)
+        }
+        
+        alphaLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(noToggleButton.snp.bottom).offset(38)
+            make.leading.equalTo(20)
+        }
+        
+        recommToggleButton.snp.makeConstraints { (make) in
+            make.top.equalTo(alphaLabel.snp.bottom).offset(12)
+            make.leading.equalTo(14)
+        }
+        
+        recommIDLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(alphaLabel.snp.bottom).offset(20)
+            make.leading.equalTo(recommToggleButton.snp.trailing).offset(6)
+        }
+        
+        eventToggleButton.snp.makeConstraints { (make) in
+            make.top.equalTo(recommToggleButton.snp.bottom).offset(12)
+            make.leading.equalTo(14)
+        }
+        
+        eventLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(recommIDLabel.snp.bottom).offset(28)
+            make.leading.equalTo(recommToggleButton.snp.trailing).offset(6)
+        }
+        
+    }
+    
+    // MARK: - Function
+    
+    @objc func selectOption(_ sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
+        print("d")
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

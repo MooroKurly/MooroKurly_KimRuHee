@@ -29,9 +29,10 @@ class JoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainTV.separatorStyle = .none
+        
         mainTV.delegate = self
         mainTV.dataSource = self
-        
         mainTV.register(JoinTableCell.self, forCellReuseIdentifier: "JoinTableCell")
         
         configureUI()
@@ -71,19 +72,36 @@ class JoinViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDelegate
+
 extension JoinViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+        default:
+            return 10
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .kurlyBackgroundGray
+        return view
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 1350
+            return 1180
         default:
-            return 100
+            return 566
         }
-        
     }
-    
 }
+
+// MARK: - UITableViewDataSource
 
 extension JoinViewController : UITableViewDataSource {
     
@@ -105,13 +123,12 @@ extension JoinViewController : UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "JoinTableCell", for: indexPath) as? JoinTableCell else { return UITableViewCell() }
-            cell.configureUI()
+            cell.configureFirstCellUI()
             cell.selectionStyle = .none
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "JoinTableCell", for: indexPath) as? JoinTableCell else { return UITableViewCell() }
-//            cell.configureUI()
-            cell.backgroundColor = .orange
+            cell.configureSecondCellUI()
             cell.selectionStyle = .none
             return cell
         }
