@@ -69,6 +69,11 @@ class JoinSecondTableView: UIView {
             label.attributedText = attributedString
         }
     
+    var firstMoreButton : UIButton = UIButton().ductTape
+        .reinforce { (btn) in
+            btn.setImage(UIImage(named: "btnSeeTerm"), for: .normal)
+        }
+    
     var secondCheckButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnUncheck"), for: .normal)
@@ -88,6 +93,11 @@ class JoinSecondTableView: UIView {
             label.attributedText = attributedString
         }
     
+    var secondMoreButton : UIButton = UIButton().ductTape
+        .reinforce { (btn) in
+            btn.setImage(UIImage(named: "btnSeeTerm"), for: .normal)
+        }
+        
     var thirdCheckButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnUncheck"), for: .normal)
@@ -105,6 +115,11 @@ class JoinSecondTableView: UIView {
             attributedString.addAttribute(.foregroundColor, value: UIColor.kurlyTextGray, range: (label.text! as NSString).range(of:"(선택)"))
             
             label.attributedText = attributedString
+        }
+    
+    var thirdMoreButton : UIButton = UIButton().ductTape
+        .reinforce { (btn) in
+            btn.setImage(UIImage(named: "btnSeeTerm"), for: .normal)
         }
     
     var fourthCheckButton : UIButton = UIButton().ductTape
@@ -191,8 +206,10 @@ class JoinSecondTableView: UIView {
         super.init(frame: frame)
         
         addSubviews(termLabel, termCheckButton, agreeLabel, lineView,
-                    firstCheckButton, firstAgreeLabel, secondCheckButton, secondAgreeLabel,
-                    thirdCheckButton, thirdAgreeLabel, fourthCheckButton, fourthAgreeLabel,
+                    firstCheckButton, firstAgreeLabel, firstMoreButton,
+                    secondCheckButton, secondAgreeLabel, secondMoreButton,
+                    thirdCheckButton, thirdAgreeLabel, thirdMoreButton,
+                    fourthCheckButton, fourthAgreeLabel,
                     smsCheckButton, smsLabel, emailCheckButton, emailLabel,
                     eventImageView, ageCheckButton, ageAgreeLabel, joinButton)
         
@@ -230,6 +247,11 @@ class JoinSecondTableView: UIView {
             make.leading.equalTo(firstCheckButton.snp.trailing).offset(6)
         }
         
+        firstMoreButton.snp.makeConstraints { (make) in
+            make.top.equalTo(lineView.snp.bottom).offset(16)
+            make.trailing.equalTo(-4)
+        }
+        
         secondCheckButton.snp.makeConstraints { (make) in
             make.top.equalTo(firstCheckButton.snp.bottom).offset(4)
             make.leading.equalTo(14)
@@ -240,6 +262,11 @@ class JoinSecondTableView: UIView {
             make.leading.equalTo(secondCheckButton.snp.trailing).offset(6)
         }
         
+        secondMoreButton.snp.makeConstraints { (make) in
+            make.top.equalTo(firstMoreButton.snp.bottom).offset(7)
+            make.trailing.equalTo(-4)
+        }
+        
         thirdCheckButton.snp.makeConstraints { (make) in
             make.top.equalTo(secondCheckButton.snp.bottom).offset(4)
             make.leading.equalTo(14)
@@ -248,6 +275,11 @@ class JoinSecondTableView: UIView {
         thirdAgreeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(secondAgreeLabel.snp.bottom).offset(23)
             make.leading.equalTo(thirdCheckButton.snp.trailing).offset(6)
+        }
+        
+        thirdMoreButton.snp.makeConstraints { (make) in
+            make.top.equalTo(secondMoreButton.snp.bottom).offset(7)
+            make.trailing.equalTo(-4)
         }
         
         fourthCheckButton.snp.makeConstraints { (make) in
