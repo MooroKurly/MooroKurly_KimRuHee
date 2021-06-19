@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     var closeButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
             btn.setImage(UIImage(named: "btnClose"), for: .normal)
-            btn.addTarget(self, action: #selector(closeAction(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressCloseButton(_:)), for: .touchUpInside)
         }
     
     let idTextField : UITextField = UITextField().ductTape
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
             btn.setTitle("로그인", for: .normal)
             btn.setTitleColor(.white, for: .normal)
             btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
-            btn.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressLoginButton(_:)), for: .touchUpInside)
         }
     
     let findButton : UILabel = UILabel().ductTape
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
             btn.setTitle("회원가입", for: .normal)
             btn.setTitleColor(.kurlyPurple, for: .normal)
             btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
-            btn.addTarget(self, action: #selector(goToJoinAction(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(pressJoinButton(_:)), for: .touchUpInside)
             
         }
     
@@ -145,11 +145,11 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @objc func closeAction(_ sender: UIButton) {
+    @objc func pressCloseButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc func goToJoinAction(_ sender: UIButton) {
+    @objc func pressJoinButton(_ sender: UIButton) {
 ///       여기 push로 열려야 하는데 그건 안됨.. 아직
         let nextVC = JoinViewController()
         nextVC.modalPresentationStyle = .fullScreen
@@ -157,7 +157,7 @@ class LoginViewController: UIViewController {
 //        navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    @objc func loginAction(_ sender: UIButton) {
+    @objc func pressLoginButton(_ sender: UIButton) {
         
         LoginService.shared.login(id: self.idTextField.text!, password: self.pwTextField.text!) { result in
             switch result {

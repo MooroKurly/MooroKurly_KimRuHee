@@ -550,6 +550,25 @@ class JoinFirstTableView: UIView {
     
     @objc func pressCheckButton(_ sender: UIButton) {
         
+        IdCheckService.shared.idCheck(id: idTextField.text!) { (result) in
+            switch result {
+            case .success(let msg):
+
+                if let msg = msg as? String {
+                    print("success", msg)
+                }
+            
+            case .requestErr(let msg):
+                print("requestERR", msg)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
     }
     
     // 남자 선택 버튼
