@@ -27,12 +27,16 @@ class MykurlyUpperTableCell: UITableViewCell {
         .textColor(.kurlyTextGray)
         .font(.systemFont(ofSize: 14, weight: .semibold))
     
-    let joinButton : UIButton = UIButton().ductTape
+    var joinButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
-            btn.setImage(UIImage(named: "btnJoin"), for: .normal)
+            btn.layer.cornerRadius = 5.0
+            btn.backgroundColor = .kurlyPurple
+            btn.setTitle("로그인/회원가입", for: .normal)
+            btn.setTitleColor(.white, for: .normal)
+            btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         }
-
     
+
     // MARK: - UI
     
     func configureUI() {
@@ -55,6 +59,7 @@ class MykurlyUpperTableCell: UITableViewCell {
             make.top.equalTo(joinEventButton.snp.bottom).offset(31)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
+            make.height.equalTo(48)
         }
     }
 

@@ -26,17 +26,32 @@ class LoginViewController: UIViewController {
         .placeholder("아이디를 입력해주세요")
         .textColor(.kurlyBlack)
         .font(.systemFont(ofSize: 16, weight: .semibold))
-        .borderStyle(.roundedRect)
+        .reinforce { (tf) in
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
+        }
     
     let pwTextField : UITextField = UITextField().ductTape
-        .placeholder("비밀번호를 입력해주세요")
         .textColor(.kurlyBlack)
         .font(.systemFont(ofSize: 16, weight: .semibold))
-        .borderStyle(.roundedRect)
+        .reinforce { (tf) in
+            tf.placeholder = "비밀번호를 입력해주세요"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
+            tf.isSecureTextEntry = true
+        }
     
-    let loginButton : UIButton = UIButton().ductTape
+    var loginButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
-            btn.setImage(UIImage(named: "btnLogin"), for: .normal)
+            btn.layer.cornerRadius = 5.0
+            btn.backgroundColor = .kurlyPurple
+            btn.setTitle("로그인", for: .normal)
+            btn.setTitleColor(.white, for: .normal)
+            btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
             btn.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
         }
     
@@ -45,16 +60,27 @@ class LoginViewController: UIViewController {
         .textColor(.kurlyTextGray)
         .font(.systemFont(ofSize: 13, weight: .semibold))
     
-    let joinButton : UIButton = UIButton().ductTape
+    var joinButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
-            btn.setImage(UIImage(named: "btnSignup"), for: .normal)
+            btn.layer.cornerRadius = 5.0
+            btn.layer.borderWidth = 1.0
+            btn.layer.borderColor = UIColor.kurlyPurple.cgColor
+            btn.layer.cornerRadius = 5.0
+            btn.backgroundColor = .white
+            btn.setTitle("회원가입", for: .normal)
+            btn.setTitleColor(.kurlyPurple, for: .normal)
+            btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
             btn.addTarget(self, action: #selector(goToJoinAction(_:)), for: .touchUpInside)
+            
         }
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        idTextField.delegate = self
+        pwTextField.delegate = self
         
         configureUI()
 
@@ -97,6 +123,7 @@ class LoginViewController: UIViewController {
             make.top.equalTo(pwTextField.snp.bottom).offset(24)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
+            make.height.equalTo(48)
         }
         
         findButton.snp.makeConstraints { (make) in
@@ -108,7 +135,14 @@ class LoginViewController: UIViewController {
             make.top.equalTo(loginButton.snp.bottom).offset(64)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
+            make.height.equalTo(48)
         }
+    }
+    
+    // MARK: - Function
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @objc func closeAction(_ sender: UIButton) {
@@ -147,4 +181,36 @@ class LoginViewController: UIViewController {
         }
     }
     
+}
+
+extension LoginViewController : UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case idTextField:
+            idTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+        default:
+            pwTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case idTextField:
+            idTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+        default:
+            pwTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case idTextField:
+            pwTextField.becomeFirstResponder()
+        default:
+            pwTextField.resignFirstResponder()
+        }
+        
+        return true
+    }
 }

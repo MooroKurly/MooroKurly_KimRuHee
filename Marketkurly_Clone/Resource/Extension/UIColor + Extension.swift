@@ -42,5 +42,10 @@ extension UIColor {
         return UIColor(white: 102.0 / 255.0, alpha: 1.0)
       }
     
+    @nonobjc class var kurlyBorderColor: UIColor {
+        return UIColor(red: 220.0 / 255.0, green: 221.0 / 255.0, blue: 220.0 / 255.0, alpha: 1.0)
+      }
+    
+    
 }
 

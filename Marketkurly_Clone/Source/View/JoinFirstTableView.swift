@@ -24,8 +24,11 @@ class JoinFirstTableView: UIView {
     
     var idTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "아이디를 입력해주세요"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
         }
     
     var checkButton : UIButton = UIButton().ductTape
@@ -46,8 +49,11 @@ class JoinFirstTableView: UIView {
     
     var pwTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "비밀번호를 입력해주세요"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
             tf.isSecureTextEntry = true
         }
     
@@ -64,8 +70,11 @@ class JoinFirstTableView: UIView {
     
     var pwCheckTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "비밀번호를 한번 더 입력해주세요"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
             tf.isSecureTextEntry = true
         }
     
@@ -82,8 +91,11 @@ class JoinFirstTableView: UIView {
     
     var nameTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "이름을 입력해주세요"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
         }
     
     var emailLabel : UILabel = UILabel().ductTape
@@ -99,8 +111,11 @@ class JoinFirstTableView: UIView {
     
     var emailTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "예: marketkurly@kurly.com"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
         }
     
     var phoneLabel : UILabel = UILabel().ductTape
@@ -116,8 +131,11 @@ class JoinFirstTableView: UIView {
     
     var phoneTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "숫자만 입력해주세요"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
             tf.keyboardType = .numberPad
         }
     
@@ -139,8 +157,11 @@ class JoinFirstTableView: UIView {
     
     var addressTextField : UITextField = UITextField().ductTape
         .reinforce { (tf) in
-            tf.borderStyle = .roundedRect
             tf.placeholder = "도로명, 지번, 건물명 검색"
+            tf.layer.borderWidth = 1.0
+            tf.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            tf.layer.cornerRadius = 5.0
+            tf.placeholderPadding()
         }
     
     var addressInfoLabel : UILabel = UILabel().ductTape
@@ -158,7 +179,7 @@ class JoinFirstTableView: UIView {
     var birthdayBoxView : UIView = UIView().ductTape
         .reinforce { (view) in
             view.layer.borderWidth = 1.0
-            view.layer.borderColor = UIColor(red: 220.0 / 255.0, green: 221.0 / 255.0, blue: 220.0 / 255.0, alpha: 1.0).cgColor
+            view.layer.borderColor = UIColor.kurlyBorderColor.cgColor
             view.layer.cornerRadius = 5.0
             view.backgroundColor = .white
         }
@@ -276,6 +297,15 @@ class JoinFirstTableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        
+        idTextField.delegate = self
+        pwTextField.delegate = self
+        pwCheckTextField.delegate = self
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        phoneTextField.delegate = self
+        addressTextField.delegate = self
         
         yearTextField.delegate = self
         monthTextField.delegate = self
@@ -498,23 +528,23 @@ class JoinFirstTableView: UIView {
         }
         print("d")
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
 }
 
+// MARK: - UITextFieldDelegate
+
 extension JoinFirstTableView : UITextFieldDelegate {
     
     // 생년월일 텍스트 필드 부분 글자 수 제한
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if textField == yearTextField {
             
             // ( 기존 텍스트 필드의 텍스트 + 새로 입력할 텍스트 - 지워질 글자 개수 ) 가 지정한 값을 넘지 말아야 함
-            
             let yearLength = yearTextField.text!.count + string.count - range.length
             return !(yearLength > 4)
             
@@ -528,8 +558,125 @@ extension JoinFirstTableView : UITextFieldDelegate {
             let dayLength = dayTextField.text!.count + string.count - range.length
             return !(dayLength > 2)
             
+        } else if textField == idTextField {
+            
+            let idLength = idTextField.text!.count + string.count - range.length
+            return !(idLength > 16)
+            
+        } else if textField == pwTextField {
+            
+            let pwLength = pwTextField.text!.count + string.count - range.length
+            return !(pwLength > 16)
+            
+        } else if textField == pwCheckTextField {
+            
+            let pwCheckLength = pwCheckTextField.text!.count + string.count - range.length
+            return !(pwCheckLength > 16)
         }
-        
         return true
     }
+    
+    // return 누르면 발생되는 이벤트 관련 함수
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        
+        // 키보드에서 return 버튼 누르면 그 다음 텍스트필드로 커서 이동
+        case idTextField:
+            pwTextField.becomeFirstResponder()
+         
+        case pwTextField:
+            pwCheckTextField.becomeFirstResponder()
+            
+        case pwCheckTextField:
+            nameTextField.becomeFirstResponder()
+            
+        case nameTextField:
+            emailTextField.becomeFirstResponder()
+            
+        case emailTextField:
+            phoneTextField.becomeFirstResponder()
+            
+        case phoneTextField:
+            addressTextField.becomeFirstResponder()
+            
+        case addressTextField:
+            yearTextField.becomeFirstResponder()
+            
+        case yearTextField:
+            monthTextField.becomeFirstResponder()
+            
+        case monthTextField:
+            dayTextField.becomeFirstResponder()
+            
+        // 여기는 dayTextField가 마지막이니까 return 누르면 키보드 dismiss
+        default:
+            dayTextField.resignFirstResponder()
+            
+        }
+        return true
+    }
+    
+    
+    // textField 선택하면 검정색으로 변경시켜주기 위한 함수
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case idTextField:
+            idTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        case pwTextField:
+            pwTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        case pwCheckTextField:
+            pwCheckTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        case nameTextField:
+            nameTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        case emailTextField:
+            emailTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        case phoneTextField:
+            phoneTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        case addressTextField:
+            addressTextField.layer.borderColor = UIColor.kurlyBlack.cgColor
+            
+        default:
+            birthdayBoxView.layer.borderColor = UIColor.kurlyBlack.cgColor
+        }
+        
+    }
+    
+    // textField 선택 끝나면 다시 회색으로 돌아오기 위한 함수
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case idTextField:
+            idTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        case pwTextField:
+            pwTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        case pwCheckTextField:
+            pwCheckTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        case nameTextField:
+            nameTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        case emailTextField:
+            emailTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        case phoneTextField:
+            phoneTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        case addressTextField:
+            addressTextField.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        default:
+            birthdayBoxView.layer.borderColor = UIColor.kurlyBorderColor.cgColor
+            
+        }
+    }
+    
 }
+
+
