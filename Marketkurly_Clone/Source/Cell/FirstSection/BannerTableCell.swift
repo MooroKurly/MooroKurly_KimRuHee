@@ -14,7 +14,7 @@ class BannerTableCell: UITableViewCell {
     
     //MARK: - Property
     
-    var bannerImageArray = ["imgBanner", "imgBanner2", "imgBanner", "imgBanner2"]
+    var bannerImageArray : [Banner] = []
     
     var bannerCV : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,7 +31,7 @@ class BannerTableCell: UITableViewCell {
     //MARK: - UI 관련
     
     func configureUI() {
-       
+        
         bannerCV.delegate = self
         bannerCV.dataSource = self
         bannerCV.register(BannerCollectionCell.self, forCellWithReuseIdentifier: "BannerCollectionCell")
@@ -42,6 +42,33 @@ class BannerTableCell: UITableViewCell {
             make.top.leading.bottom.trailing.equalToSuperview()
         }
         
+    }
+    
+    func getData() {
+        
+        
+        GetBannerService.shared.getBanner { (response) in
+            switch response {
+            
+            case .success(let bannerData):
+
+                if let decodedData = bannerData as? [Banner] {
+                    
+                    self.bannerImageArray = decodedData
+                    self.bannerCV.reloadData()
+                }
+                
+            case .requestErr(let bannerData):
+                print("requestERR", bannerData)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+            
+        }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -90,7 +117,7 @@ extension BannerTableCell : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as? BannerCollectionCell else { return UICollectionViewCell() }
-        cell.setData(imageName: bannerImageArray[indexPath.row])
+        cell.setData(imageName: bannerImageArray[indexPath.row].img)
         return cell
     }
     

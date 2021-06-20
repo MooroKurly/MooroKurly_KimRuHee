@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Kingfisher
 import SnapKit
 
 class ProductCollectionCell: UICollectionViewCell {
@@ -84,8 +86,8 @@ class ProductCollectionCell: UICollectionViewCell {
     func setData(imageName : String, name : String,
                  percent : String, price : String, previous : String) {
         
-        if let image = UIImage(named: imageName) {
-            productImage.image = image
+        if let image = URL(string: imageName) {
+            productImage.kf.setImage(with: image)
         }
         
         nameLabel.text = name

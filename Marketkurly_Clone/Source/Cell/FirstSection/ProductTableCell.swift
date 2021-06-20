@@ -11,26 +11,7 @@ class ProductTableCell: UITableViewCell {
     
     static let identifier = "ProductTableCell"
     
-    var productList = [
-        ProductDataModel(productImageName: "imgProduct", productName: "[우리밀] 두부과자",
-                         productPercent: "4%", productPrice: "2,200원", productPreviousPrice: "2,200원"),
-        
-        ProductDataModel(productImageName: "imgProduct2", productName: "무농약 브로컬리 2종",
-                         productPercent: "10%", productPrice: "3,305원", productPreviousPrice: "9,920원"),
-        
-        ProductDataModel(productImageName: "imgProduct", productName: "무로컬리즈",
-                         productPercent: "14%", productPrice: "1,981원", productPreviousPrice: "9,720원"),
-        
-        ProductDataModel(productImageName: "imgProduct2", productName: "주저하는 연인들",
-                         productPercent: "24%", productPrice: "3,807원", productPreviousPrice: "4,830원"),
-        
-        ProductDataModel(productImageName: "imgProduct", productName: "좋을텐데",
-                         productPercent: "9%", productPrice: "7,982원", productPreviousPrice: "6,298원"),
-        
-        ProductDataModel(productImageName: "imgProduct2", productName: "잠이가 온다네",
-                         productPercent: "8%", productPrice: "4,300원", productPreviousPrice: "1,350원")
-        
-    ]
+    var productList : [Sale] = []
     
     //MARK: - Property
     
@@ -74,7 +55,35 @@ class ProductTableCell: UITableViewCell {
             make.bottom.trailing.equalTo(0)
         }
         
-        
+    }
+    
+    func getData() {
+    
+        GetFoodService.shared.URL.self = APIConstants.foodURL + "0"
+
+        GetFoodService.shared.getFood { (response) in
+            
+            switch response {
+            
+            case .success(let foodData):
+                
+                if let decodedData = foodData as? [Sale] {
+                    
+                    self.productCV.reloadData()
+                    self.productList = decodedData
+                    
+                }
+            
+            case .requestErr(let foodData):
+                print("requestERR", foodData)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -126,11 +135,12 @@ extension ProductTableCell : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionCell", for: indexPath) as? ProductCollectionCell else { return UICollectionViewCell() }
         
-        cell.setData(imageName: productList[indexPath.row].productImageName,
-                     name: productList[indexPath.row].productName,
-                     percent: productList[indexPath.row].productPercent,
-                     price: productList[indexPath.row].productPrice,
-                     previous: productList[indexPath.row].productPreviousPrice)
+        cell.setData(imageName: productList[indexPath.row].product.img,
+                     name: productList[indexPath.row].product.name,
+                     percent: String(productList[indexPath.row].discountRate)+"%",
+                     price: String(productList[indexPath.row].discountedPrice)+"원",
+                     previous: String(productList[indexPath.row].product.price)+"원")
+        
         return cell
     }
 }

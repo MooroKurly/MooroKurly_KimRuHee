@@ -1,5 +1,5 @@
 //
-//  GetBannerService.swift
+//  GetFoodService.swift
 //  Marketkurly_Clone
 //
 //  Created by Thisisme Hi on 2021/06/20.
@@ -8,13 +8,14 @@
 import Foundation
 import Alamofire
 
-struct GetBannerService {
+struct GetFoodService {
     
-    static let shared = GetBannerService()
+    static var shared = GetFoodService()
     
-    func getBanner(completion : @escaping (NetworkResult<Any>) -> Void) {
+    var URL = APIConstants.foodURL
+    
+    func getFood(completion : @escaping (NetworkResult<Any>) -> Void) {
         
-        let URL = APIConstants.bannerURL
         let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
         let dataRequest = AF.request(URL,
@@ -53,10 +54,10 @@ struct GetBannerService {
         
         let decoder = JSONDecoder()
         
-        guard let decodedData = try? decoder.decode(BannerDataModel.self, from: data)
+        guard let decodedData = try? decoder.decode(FoodDataModel.self, from: data)
         else { return .pathErr }
         
-        return .success(decodedData.banners)
+        return .success(decodedData.sales)
                           
     }
     

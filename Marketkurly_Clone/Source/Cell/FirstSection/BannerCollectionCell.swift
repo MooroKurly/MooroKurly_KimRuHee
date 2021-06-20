@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BannerCollectionCell: UICollectionViewCell {
     
@@ -40,8 +41,8 @@ class BannerCollectionCell: UICollectionViewCell {
     
     func setData(imageName : String) {
         
-        if let image = UIImage(named: imageName) {
-            bannerImage.image = image
+        if let image = URL(string: imageName) {
+            bannerImage.kf.setImage(with: image)
         }
     }
     

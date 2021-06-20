@@ -1,5 +1,5 @@
 //
-//  GetBannerService.swift
+//  GetSpecialPriceService.swift
 //  Marketkurly_Clone
 //
 //  Created by Thisisme Hi on 2021/06/20.
@@ -8,13 +8,13 @@
 import Foundation
 import Alamofire
 
-struct GetBannerService {
+struct GetSpecialPriceService {
     
-    static let shared = GetBannerService()
+    static let shared = GetSpecialPriceService()
     
-    func getBanner(completion : @escaping (NetworkResult<Any>) -> Void) {
+    func getSpecialPrice(completion : @escaping (NetworkResult<Any>) -> Void) {
         
-        let URL = APIConstants.bannerURL
+        let URL = APIConstants.specialURL
         let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
         let dataRequest = AF.request(URL,
@@ -53,10 +53,10 @@ struct GetBannerService {
         
         let decoder = JSONDecoder()
         
-        guard let decodedData = try? decoder.decode(BannerDataModel.self, from: data)
+        guard let decodedData = try? decoder.decode(SpecialPriceDataModel.self, from: data)
         else { return .pathErr }
         
-        return .success(decodedData.banners)
+        return .success(decodedData.specialPrices)
                           
     }
     

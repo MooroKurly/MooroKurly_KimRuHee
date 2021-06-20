@@ -11,26 +11,7 @@ class RegretPriceTableCell: UITableViewCell {
     
     static let identifier = "RegretPriceTableCell"
     
-    var productList = [
-        ProductDataModel(productImageName: "imgFood1", productName: "[우리밀] 두부과자",
-                         productPercent: "20%", productPrice: "24,000원", productPreviousPrice: "24,000원"),
-        
-        ProductDataModel(productImageName: "imgFood2", productName: "무농약 브로컬리 2종",
-                         productPercent: "15%", productPrice: "13,305원", productPreviousPrice: "19,920원"),
-        
-        ProductDataModel(productImageName: "imgFood3", productName: "김루희짜요짜요",
-                         productPercent: "14%", productPrice: "11,981원", productPreviousPrice: "9,720원"),
-        
-        ProductDataModel(productImageName: "imgFood1", productName: "주저하는 연인들",
-                         productPercent: "24%", productPrice: "31,807원", productPreviousPrice: "22,830원"),
-        
-        ProductDataModel(productImageName: "imgFood2", productName: "탄산수맛있다",
-                         productPercent: "29%", productPrice: "24,000원", productPreviousPrice: "26,298원"),
-        
-        ProductDataModel(productImageName: "imgFood3", productName: "잠이가 온다네",
-                         productPercent: "18%", productPrice: "14,300원", productPreviousPrice: "24,000원")
-        
-    ]
+    var productList : [Sale] = []
     
     //MARK: - Property
     
@@ -86,7 +67,35 @@ class RegretPriceTableCell: UITableViewCell {
             make.bottom.trailing.equalTo(0)
         }
         
+    }
+    
+    func getData() {
         
+        GetFoodService.shared.URL.self = APIConstants.foodURL + "2"
+
+        GetFoodService.shared.getFood { (response) in
+            
+            switch response {
+            
+            case .success(let foodData):
+                
+                if let decodedData = foodData as? [Sale] {
+                    
+                    self.productCV.reloadData()
+                    self.productList = decodedData
+                    
+                }
+            
+            case .requestErr(let foodData):
+                print("requestERR", foodData)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 
     override func awakeFromNib() {
@@ -133,12 +142,11 @@ extension RegretPriceTableCell : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionCell", for: indexPath)
                 as? ProductCollectionCell  else { return UICollectionViewCell() }
         
-        cell.setData(imageName: productList[indexPath.row].productImageName,
-                     name: productList[indexPath.row].productName,
-                     percent: productList[indexPath.row].productPercent,
-                     price: productList[indexPath.row].productPrice,
-                     previous: productList[indexPath.row].productPreviousPrice)
-        
+        cell.setData(imageName: productList[indexPath.row].product.img,
+                     name: productList[indexPath.row].product.name,
+                     percent: String(productList[indexPath.row].discountRate)+"%",
+                     price: String(productList[indexPath.row].discountedPrice)+"원",
+                     previous: String(productList[indexPath.row].product.price)+"원")
         return cell
     }
     

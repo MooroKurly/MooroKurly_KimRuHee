@@ -32,9 +32,14 @@ struct JoinService {
         
         let dataRequest = AF.request(URL,
                                      method: .post,
-                                     parameters: makeParameter(id: id, password: password, name: name,
-                                                               email: email, phone: phone, address: address,
-                                                               birth: birth, gender: gender),
+                                     parameters: makeParameter(id: id,
+                                                               password: password,
+                                                               name: name,
+                                                               email: email,
+                                                               phone: phone,
+                                                               address: address,
+                                                               birth: birth,
+                                                               gender: gender),
                                      encoding: JSONEncoding.default,
                                      headers: header)
         
@@ -55,7 +60,7 @@ struct JoinService {
         
     }
     
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+    private func judgeStatus(by statusCode : Int, _ data : Data) -> NetworkResult<Any> {
         
         let decoder = JSONDecoder()
         
@@ -66,9 +71,7 @@ struct JoinService {
         case 200: return .success(decodedData.msg)
         case 400: return .requestErr(decodedData.msg)
         case 500: return .serverErr
-            
         default: return .networkFail
-            
         }
     }
 }

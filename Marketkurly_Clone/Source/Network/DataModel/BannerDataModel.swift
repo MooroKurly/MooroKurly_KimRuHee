@@ -15,7 +15,8 @@ struct BannerDataModel: Codable {
 
 // MARK: - Banner
 struct Banner: Codable {
-    let id, img: String
+    let id: String
+    let img: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

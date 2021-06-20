@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DailySaleTableCell: UITableViewCell {
     
@@ -15,6 +16,8 @@ class DailySaleTableCell: UITableViewCell {
     
     let foodImage : UIImageView = {
         let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
         return image
     }()
     
@@ -84,6 +87,7 @@ class DailySaleTableCell: UITableViewCell {
             make.top.equalToSuperview()
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
+            make.height.equalTo(173)
         }
         
         saleStickerImage.snp.makeConstraints { (make) in
@@ -98,7 +102,7 @@ class DailySaleTableCell: UITableViewCell {
         
         timeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(6)
-            make.leading.equalTo(118)
+            make.centerX.equalToSuperview()
         }
         
         leftLabel.snp.makeConstraints { (make) in
@@ -127,8 +131,8 @@ class DailySaleTableCell: UITableViewCell {
     func setData(imageName : String, time : String,
                  name : String, percent : String, price : String) {
         
-        if let image = UIImage(named: imageName) {
-            foodImage.image = image
+        if let image = URL(string: imageName) {
+            foodImage.kf.setImage(with: image)
         }
         
         timeLabel.text = time
