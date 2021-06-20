@@ -13,8 +13,10 @@ import Then
 
 class ViewController: UIViewController {
     
-    var saleList : [Sale] = []
-    var saleDiscountList : [SpecialPrice] = []
+//    var saleList : [Sale] = []
+//    var saleDiscountList : [SpecialPrice] = []
+    
+    var colorArray = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.purple]
     
     //MARK: - Property
     
@@ -22,6 +24,12 @@ class ViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .kurlyPurple
         return view
+    }()
+    
+    lazy var menuBar : MenuBar = {
+        let mb = MenuBar()
+        mb.vc = self
+        return mb
     }()
     
     let logoImage : UIImageView = {
@@ -48,36 +56,50 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let mainTV = UITableView(frame: CGRect.zero, style: .grouped)
+    let mainCV : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.scrollDirection = .horizontal
+        cv.isPagingEnabled = true
+        cv.showsHorizontalScrollIndicator = false
+        return cv
+    }()
+    
+    
+//    let mainTV = UITableView(frame: CGRect.zero, style: .grouped)
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getSaleData()
-        getSpecialData()
+//        getSaleData()
+//        getSpecialData()
         
         configureUI()
         
-        mainTV.delegate = self
-        mainTV.dataSource = self
-        mainTV.separatorStyle = .none
+        mainCV.delegate = self
+        mainCV.dataSource = self
+        mainCV.register(MainCollectionCell.self, forCellWithReuseIdentifier: "MainCollectionCell")
+        
+//        mainTV.delegate = self
+//        mainTV.dataSource = self
+//        mainTV.separatorStyle = .none
         
         // 푸터 추가하고 나서 생긴 오류를 해결하는 코드 -> 이유가 뭘까?
-        mainTV.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
-        mainTV.sectionHeaderHeight = 0
+//        mainTV.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
+//        mainTV.sectionHeaderHeight = 0
         
-        // section == 0 에 해당하는 cell
-        mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")
-        mainTV.register(ProductTableCell.self, forCellReuseIdentifier: "ProductTableCell")
-        mainTV.register(SaleTableCell.self, forCellReuseIdentifier: "SaleTableCell")
-        mainTV.register(SaleSubTableCell.self, forCellReuseIdentifier: "SaleSubTableCell")
-        mainTV.register(DailySubTableCell.self, forCellReuseIdentifier: "DailySubTableCell")
-        mainTV.register(DailySaleTableCell.self, forCellReuseIdentifier: "DailySaleTableCell")
-        
-        // section == 1 에 해당하는 cell
-        mainTV.register(RegretPriceTableCell.self, forCellReuseIdentifier: "RegretPriceTableCell")
+//        // section == 0 에 해당하는 cell
+//        mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")
+//        mainTV.register(ProductTableCell.self, forCellReuseIdentifier: "ProductTableCell")
+//        mainTV.register(SaleTableCell.self, forCellReuseIdentifier: "SaleTableCell")
+//        mainTV.register(SaleSubTableCell.self, forCellReuseIdentifier: "SaleSubTableCell")
+//        mainTV.register(DailySubTableCell.self, forCellReuseIdentifier: "DailySubTableCell")
+//        mainTV.register(DailySaleTableCell.self, forCellReuseIdentifier: "DailySaleTableCell")
+//        
+//        // section == 1 에 해당하는 cell
+//        mainTV.register(RegretPriceTableCell.self, forCellReuseIdentifier: "RegretPriceTableCell")
     }
     
     //MARK: - UI 관련
@@ -88,9 +110,9 @@ class ViewController: UIViewController {
         view.addSubview(logoImage)
         view.addSubview(mapButton)
         view.addSubview(cartButton)
-        view.addSubview(menuView)
-        
-        view.addSubview(mainTV)
+        view.addSubview(menuBar)
+        view.addSubview(mainCV)
+
         
         
         // 상단 로고 uiview
@@ -114,270 +136,113 @@ class ViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-17)
         }
         
-        // custom tabbar
-        menuView.snp.makeConstraints { (make) in
+        menuBar.snp.makeConstraints { (make) in
             make.top.equalTo(upperView.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(55)
         }
         
-        // tabbar 아래 tableView..
-        mainTV.snp.makeConstraints { (make) in
-            make.top.equalTo(menuView.snp.bottom)
-            make.leading.bottom.trailing.equalToSuperview()
-        }
-    }
-    
-    // 일일특가 부분에 서버에서 받아온 데이터 넣어주는 함수
-    func getSaleData() {
-        
-        GetFoodService.shared.URL.self = APIConstants.foodURL + "1"
-        
-        GetFoodService.shared.getFood { (response) in
-            switch response {
-            
-            case .success(let foodData):
-                
-                if let decodedData = foodData as? [Sale] {
-                    self.saleList = decodedData
-                    self.mainTV.reloadData()
-                    
-                }
-                
-            case .requestErr(let foodData):
-                print(foodData)
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
+        mainCV.snp.makeConstraints { (make) in
+            make.top.equalTo(menuBar.snp.bottom)
+            make.leading.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+//            make.height.equalTo(100)
         }
         
-    }
-    
-    // 특가/혜택 부분
-    func getSpecialData() {
-        
-            
-        GetSpecialPriceService.shared.getSpecialPrice { (response) in
-            switch response {
-            
-            case .success(let priceData):
-                print(priceData,"여기여기")
-                if let decodedData = priceData as? [SpecialPrice] {
-                    print(decodedData,"여기여기")
-                    self.saleDiscountList = decodedData
-                    self.mainTV.reloadData()
-                }
-                
-            case .requestErr(let priceData):
-                print("requestERR", priceData)
-            case .pathErr:
-                print("pathERR")
-            case .serverErr:
-                print("serverERR")
-            case .networkFail:
-                print("networkFail","설마?")
-            }
-        }
     }
 }
 
+// MARK: - UICollectionViewDelegate
 
-//MARK: - UITableViewDelegate
-
-extension ViewController : UITableViewDelegate {
+extension ViewController : UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    // mainCV 스크롤하면 slideBar도 같이 스크롤
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        switch indexPath.section {
-        case 0:
-            if indexPath.row == 0 {
-                return 340
+        let slideBar = menuBar.slideBarView
+        
+        let width = UIScreen.main.bounds.width
+        let slideBarWidth = menuBar.slideBarView.frame.width
+        
+        
+        if scrollView.contentOffset == CGPoint(x: 0.0, y: 0.0) {
+            UIView.animate(withDuration: 0.3) {
+                // mainCV 이동하면 slideBar 위치도 같이 이동
+                slideBar.frame.origin.x = width * (15/width)
                 
-            } else if indexPath.row == 1 {
-                return 371
+                // mainCV 이동하면 menuBar 메뉴 색상도 같이 변경
+                self.menuBar.menuCV.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .init())
                 
             }
-            
-        case 1:
-            if indexPath.row == 0 {
-                return 64
-            } else {
-                return 342
+
+        } else if scrollView.contentOffset == CGPoint(x: width, y: 0.0) {
+            UIView.animate(withDuration: 0.3) {
+                slideBar.frame.origin.x = width * (15/width) + slideBarWidth
+                self.menuBar.menuCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .init())
+                
             }
-            
-        case 2:
-            if indexPath.row == 0 {
-                return 93
-            } else {
-                return 250
+
+        } else if scrollView.contentOffset == CGPoint(x: width * 2, y: 0.0) {
+            UIView.animate(withDuration: 0.3) {
+                slideBar.frame.origin.x = width * (15/width) + slideBarWidth * 2
+                self.menuBar.menuCV.selectItem(at: IndexPath(item: 2, section: 0), animated: true, scrollPosition: .init())
+
             }
-            
-        default:
-            return 371
-            
+
+        } else if scrollView.contentOffset == CGPoint(x: width * 3, y: 0.0) {
+            UIView.animate(withDuration: 0.3) {
+                slideBar.frame.origin.x = width * (15/width) + slideBarWidth * 3
+                self.menuBar.menuCV.selectItem(at: IndexPath(item: 3, section: 0), animated: true, scrollPosition: .init())
+               
+            }
+
+        } else if scrollView.contentOffset == CGPoint(x: width * 4, y: 0.0) {
+            UIView.animate(withDuration: 0.3) {
+                slideBar.frame.origin.x = width * (15/width) + slideBarWidth * 4
+                self.menuBar.menuCV.selectItem(at: IndexPath(item: 4, section: 0), animated: true, scrollPosition: .init())
+               
+            }
         }
-        return CGFloat()
+
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension ViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return colorArray.count
     }
     
-    // tableView footer
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        switch section {
-        case 0, 1, 2:
-            return CGFloat()
-            
-        default:
-            return 353
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionCell", for: indexPath) as? MainCollectionCell else { return UICollectionViewCell() }
+        
+        cell.backgroundColor = colorArray[indexPath.row]
+        cell.configureUI()
+        cell.getSaleData()
+        cell.getSpecialData()
+                
+        return cell
     }
-    
+        
 }
 
 
-
-//MARK: - UITableViewDataSource
-
-extension ViewController : UITableViewDataSource {
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        return CGSize(width: width, height: UIScreen.main.bounds.height)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        switch section {
-        case 0:
-            return 2
-        case 1:
-            return 1 + saleDiscountList.count
-            
-        case 2:
-            return 1 + saleList.count
-            
-        default:
-            return 1
-            
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            if indexPath.row == 0 { // 배너 관련 셀
-                guard let bannerCell = tableView.dequeueReusableCell(withIdentifier: "BannerTableCell", for: indexPath)
-                        as? BannerTableCell else { return UITableViewCell() }
-                
-                bannerCell.configureUI()
-                bannerCell.getData()
-                return bannerCell
-                
-            } else if indexPath.row == 1 { // 이 상품 어때요 셀
-                guard let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableCell", for: indexPath)
-                        as? ProductTableCell else { return UITableViewCell() }
-                
-                productCell.selectionStyle = .none
-                productCell.configureUI()
-                productCell.getData()
-                
-                return productCell
-            }
-        case 1:
-            if indexPath.row == 0 { // 특가/혜택 셀
-                guard let saleCell = tableView.dequeueReusableCell(withIdentifier: "SaleTableCell", for: indexPath)
-                        as? SaleTableCell else { return UITableViewCell() }
-                
-                saleCell.backgroundColor = UIColor(red: 246.0 / 255.0, green: 247.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
-                
-                saleCell.selectionStyle = .none
-                saleCell.configureUI()
-                
-                return saleCell
-            } else { // 특가/혜택 내용 부분 셀
-                guard let saleSubCell = tableView.dequeueReusableCell(withIdentifier: "SaleSubTableCell", for: indexPath)
-                        as? SaleSubTableCell else { return UITableViewCell() }
-                
-                saleSubCell.backgroundColor = UIColor(red: 246.0 / 255.0, green: 247.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
-                
-                saleSubCell.selectionStyle = .none
-                saleSubCell.configureUI()
-                saleSubCell.setData(imageName: saleDiscountList[indexPath.row-1].thumbnail,
-                                    sale: saleDiscountList[indexPath.row-1].title,
-                                    subName: saleDiscountList[indexPath.row-1].subtitle)
-                
-                return saleSubCell
-            }
-        case 2:
-            if indexPath.row == 0 { // 일일특가에서 제목부분 ( 24시간 한정 특가 ) 셀
-                guard let dailysubCell = tableView.dequeueReusableCell(withIdentifier: "DailySubTableCell", for: indexPath)
-                        as? DailySubTableCell else { return UITableViewCell() }
-                
-                dailysubCell.selectionStyle = .none
-                dailysubCell.configureUI()
-                
-                return dailysubCell
-                
-                
-            } else { // 일일특가 상세 셀
-                guard let dailyCell = tableView.dequeueReusableCell(withIdentifier: "DailySaleTableCell", for: indexPath)
-                        as? DailySaleTableCell else { return UITableViewCell() }
-                
-                dailyCell.selectionStyle = .none
-                dailyCell.configureUI()
-                dailyCell.setData(imageName: saleList[indexPath.row-1].product.img,
-                                  time: saleList[indexPath.row-1].time,
-                                  name: saleList[indexPath.row-1].product.name,
-                                  percent: String(saleList[indexPath.row-1].discountRate)+"%",
-                                  price: String(saleList[indexPath.row-1].product.price)+"원")
-                
-                return dailyCell
-                
-            }
-            
-        case 3:
-            
-            if indexPath.row == 0 {
-                guard let regretCell = tableView.dequeueReusableCell(withIdentifier: "RegretPriceTableCell", for: indexPath)
-                        as? RegretPriceTableCell else { return UITableViewCell() }
-                
-                regretCell.selectionStyle = .none
-                regretCell.configureUI()
-                regretCell.getData()
-                
-                return regretCell
-                
-            }
-            
-        default:
-            return UITableViewCell()
-            
-            
-        }
-        
-        return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
-    
-    // footer 넣기
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        switch section {
-        case 0, 1, 2:
-            return UIView()
-            
-        default:
-            let footer = TableFooterView()
-            footer.backgroundColor = UIColor.kurlyBackgroundGray
-            return footer
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
-    
-    
-    
 }

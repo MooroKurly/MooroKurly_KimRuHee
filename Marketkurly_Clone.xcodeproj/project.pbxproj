@@ -33,6 +33,9 @@
 		5B119215267E8BA90024F007 /* GetFoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119214267E8BA90024F007 /* GetFoodService.swift */; };
 		5B119219267E8CAF0024F007 /* FoodDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119218267E8CAF0024F007 /* FoodDataModel.swift */; };
 		5B11921F267EFB8B0024F007 /* SaleSubTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11921E267EFB8A0024F007 /* SaleSubTableCell.swift */; };
+		5B119222267F3C940024F007 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119221267F3C930024F007 /* MenuBar.swift */; };
+		5B119225267F3CD90024F007 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119224267F3CD90024F007 /* MenuCollectionCell.swift */; };
+		5B119229267F42670024F007 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119228267F42670024F007 /* MainCollectionCell.swift */; };
 		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
 		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
 		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
@@ -91,6 +94,9 @@
 		5B119214267E8BA90024F007 /* GetFoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodService.swift; sourceTree = "<group>"; };
 		5B119218267E8CAF0024F007 /* FoodDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataModel.swift; sourceTree = "<group>"; };
 		5B11921E267EFB8A0024F007 /* SaleSubTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleSubTableCell.swift; sourceTree = "<group>"; };
+		5B119221267F3C930024F007 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		5B119224267F3CD90024F007 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
+		5B119228267F42670024F007 /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
 		5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD7D0762668E04700A68264 /* TopHeaderView.swift */,
+				5B119221267F3C930024F007 /* MenuBar.swift */,
 				5B1191BB267B2DA40024F007 /* SettingTopHeaderView.swift */,
 				BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */,
 				5B1191E2267DC3BD0024F007 /* JoinFirstTableView.swift */,
@@ -318,6 +325,8 @@
 		BBC260452654F6540012AFA0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5B119224267F3CD90024F007 /* MenuCollectionCell.swift */,
+				5B119228267F42670024F007 /* MainCollectionCell.swift */,
 				BBD7D08D266CD53D00A68264 /* CateUpperTableCell.swift */,
 				BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */,
 				5B1191B1267B25540024F007 /* MykurlyUpperTableCell.swift */,
@@ -482,8 +491,10 @@
 				5B1191AE267B244A0024F007 /* MykurlyTableCell.swift in Sources */,
 				BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */,
 				5B1191F0267E0E270024F007 /* JoinDataModel.swift in Sources */,
+				5B119229267F42670024F007 /* MainCollectionCell.swift in Sources */,
 				BBD7D07B2668E9E300A68264 /* CategoryTableCell.swift in Sources */,
 				BB7FC7982660B72F0083B1C5 /* DailySaleTableCell.swift in Sources */,
+				5B119222267F3C940024F007 /* MenuBar.swift in Sources */,
 				BB7FC7A52660C6300083B1C5 /* RegretPriceTableCell.swift in Sources */,
 				BB7FC79B2660B87A0083B1C5 /* SaleDataModel.swift in Sources */,
 				BB7FC78726601AB10083B1C5 /* ProductTableCell.swift in Sources */,
@@ -517,6 +528,7 @@
 				5B1191C7267C3E090024F007 /* APIConstants.swift in Sources */,
 				5B1191B2267B25540024F007 /* MykurlyUpperTableCell.swift in Sources */,
 				5B119219267E8CAF0024F007 /* FoodDataModel.swift in Sources */,
+				5B119225267F3CD90024F007 /* MenuCollectionCell.swift in Sources */,
 				BBD7D0732668D03700A68264 /* CategoryViewController.swift in Sources */,
 				5B119203267E76070024F007 /* GetBannerService.swift in Sources */,
 				BB7FC7942660B5750083B1C5 /* DailySubTableCell.swift in Sources */,

@@ -382,9 +382,9 @@ class JoinSecondTableView: UIView {
     // 회원가입 버튼
     @objc func joinAction(_ sender: UIButton) {
 
-        if JoinFirstTableView().boyToggleButton.isSelected {
+        if joinFirstView.boyToggleButton.isSelected == true && joinFirstView.girlToggleButton.isSelected == false {
             gender = "남"
-        } else if JoinFirstTableView().girlToggleButton.isSelected {
+        } else if joinFirstView.girlToggleButton.isSelected == true && joinFirstView.boyToggleButton.isSelected == false {
             gender = "여"
         }
 

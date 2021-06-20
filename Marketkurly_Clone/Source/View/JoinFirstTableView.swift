@@ -9,6 +9,8 @@ import UIKit
 
 class JoinFirstTableView: UIView {
     
+    var gender = String()
+    
     // MARK: - Property
 
     var idLabel : UILabel = UILabel().ductTape
@@ -576,6 +578,7 @@ class JoinFirstTableView: UIView {
         boyToggleButton.isSelected = true
         girlToggleButton.isSelected = false
         noToggleButton.isSelected = false
+        gender = "남"
     }
     
     // 여자 선택 버튼
@@ -583,6 +586,7 @@ class JoinFirstTableView: UIView {
         boyToggleButton.isSelected = false
         girlToggleButton.isSelected = true
         noToggleButton.isSelected = false
+        gender = "여"
     }
     
     // 선택안함 버튼
@@ -590,6 +594,7 @@ class JoinFirstTableView: UIView {
         boyToggleButton.isSelected = false
         girlToggleButton.isSelected = false
         noToggleButton.isSelected = true
+        gender = "선택안함"
     }
     
     @objc func selectOption(_ sender: UIButton) {

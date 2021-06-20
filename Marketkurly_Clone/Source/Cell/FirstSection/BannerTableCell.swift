@@ -23,7 +23,7 @@ class BannerTableCell: UITableViewCell {
         collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .blue
         return collectionView
     }()
     
