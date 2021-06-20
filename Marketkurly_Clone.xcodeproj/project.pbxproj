@@ -17,7 +17,6 @@
 		5B1191CB267C3F550024F007 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191CA267C3F550024F007 /* NetworkResult.swift */; };
 		5B1191CE267C3FA00024F007 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191CD267C3FA00024F007 /* LoginDataModel.swift */; };
 		5B1191D3267C43720024F007 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191D2267C43720024F007 /* LoginService.swift */; };
-		5B1191DA267C7C690024F007 /* JoinTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191D9267C7C690024F007 /* JoinTableCell.swift */; };
 		5B1191E3267DC3BD0024F007 /* JoinFirstTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191E2267DC3BD0024F007 /* JoinFirstTableView.swift */; };
 		5B1191E6267DC4C70024F007 /* JoinSecondTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191E5267DC4C60024F007 /* JoinSecondTableView.swift */; };
 		5B1191EB267DFA320024F007 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1191EA267DFA320024F007 /* UITextField + Extension.swift */; };
@@ -36,6 +35,11 @@
 		5B119222267F3C940024F007 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119221267F3C930024F007 /* MenuBar.swift */; };
 		5B119225267F3CD90024F007 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119224267F3CD90024F007 /* MenuCollectionCell.swift */; };
 		5B119229267F42670024F007 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119228267F42670024F007 /* MainCollectionCell.swift */; };
+		5B119230267F7DA90024F007 /* NewProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11922F267F7DA90024F007 /* NewProductCollectionCell.swift */; };
+		5B119233267F7E070024F007 /* BestCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119232267F7E070024F007 /* BestCollectionCell.swift */; };
+		5B119237267F7E260024F007 /* ShoppingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119236267F7E260024F007 /* ShoppingCollectionCell.swift */; };
+		5B11923A267F7E3F0024F007 /* DiscountCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B119239267F7E3F0024F007 /* DiscountCollectionCell.swift */; };
+		5B11924C267F85D60024F007 /* JoinTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11924B267F85D60024F007 /* JoinTableCell.swift */; };
 		B970D4673BEDF7E2C9307749 /* Pods_Marketkurly_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF8F62143649D7128777CEB /* Pods_Marketkurly_Clone.framework */; };
 		BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */; };
 		BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */; };
@@ -79,7 +83,6 @@
 		5B1191CA267C3F550024F007 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		5B1191CD267C3FA00024F007 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		5B1191D2267C43720024F007 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		5B1191D9267C7C690024F007 /* JoinTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinTableCell.swift; path = Marketkurly_Clone/Source/VC/EnterVC/JoinTableCell.swift; sourceTree = SOURCE_ROOT; };
 		5B1191E2267DC3BD0024F007 /* JoinFirstTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFirstTableView.swift; sourceTree = "<group>"; };
 		5B1191E5267DC4C60024F007 /* JoinSecondTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSecondTableView.swift; sourceTree = "<group>"; };
 		5B1191EA267DFA320024F007 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
@@ -97,6 +100,11 @@
 		5B119221267F3C930024F007 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		5B119224267F3CD90024F007 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
 		5B119228267F42670024F007 /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
+		5B11922F267F7DA90024F007 /* NewProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProductCollectionCell.swift; path = /Users/thisismehi/Desktop/MooroKurly_KimRuHee/Marketkurly_Clone/Source/View/NewProductCollectionCell.swift; sourceTree = "<absolute>"; };
+		5B119232267F7E070024F007 /* BestCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCollectionCell.swift; sourceTree = "<group>"; };
+		5B119236267F7E260024F007 /* ShoppingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCollectionCell.swift; sourceTree = "<group>"; };
+		5B119239267F7E3F0024F007 /* DiscountCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCollectionCell.swift; sourceTree = "<group>"; };
+		5B11924B267F85D60024F007 /* JoinTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTableCell.swift; sourceTree = "<group>"; };
 		5BDE7D3C30BEFEC9B08D923D /* Pods-Marketkurly_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketkurly_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Marketkurly_Clone/Pods-Marketkurly_Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		BB4E2F4B2663858E00F46A87 /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		BB4E2F522663A9C600F46A87 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -192,6 +200,37 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		5B11922C267F7D7A0024F007 /* HomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				BB7FC7A02660C5AF0083B1C5 /* MainCell */,
+				5B11922F267F7DA90024F007 /* NewProductCollectionCell.swift */,
+				5B119232267F7E070024F007 /* BestCollectionCell.swift */,
+				5B119236267F7E260024F007 /* ShoppingCollectionCell.swift */,
+				5B119239267F7E3F0024F007 /* DiscountCollectionCell.swift */,
+			);
+			path = HomeCell;
+			sourceTree = "<group>";
+		};
+		5B11923C267F7F9F0024F007 /* MyKurlyCell */ = {
+			isa = PBXGroup;
+			children = (
+				5B1191B1267B25540024F007 /* MykurlyUpperTableCell.swift */,
+				5B1191AD267B244A0024F007 /* MykurlyTableCell.swift */,
+				5B11924B267F85D60024F007 /* JoinTableCell.swift */,
+			);
+			path = MyKurlyCell;
+			sourceTree = "<group>";
+		};
+		5B11923D267F7FB80024F007 /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				BBD7D08D266CD53D00A68264 /* CateUpperTableCell.swift */,
+				BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */,
+			);
+			path = CategoryCell;
+			sourceTree = "<group>";
+		};
 		BB293ECB26637071009A9298 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,9 +294,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BB7FC7A02660C5AF0083B1C5 /* FirstSection */ = {
+		BB7FC7A02660C5AF0083B1C5 /* MainCell */ = {
 			isa = PBXGroup;
 			children = (
+				5B119224267F3CD90024F007 /* MenuCollectionCell.swift */,
+				5B119228267F42670024F007 /* MainCollectionCell.swift */,
+				BB7FC7A42660C6300083B1C5 /* RegretPriceTableCell.swift */,
 				BBC260412654F6420012AFA0 /* BannerTableCell.swift */,
 				BB7FC78326600BA10083B1C5 /* BannerCollectionCell.swift */,
 				BB7FC78626601AB10083B1C5 /* ProductTableCell.swift */,
@@ -267,15 +309,7 @@
 				BB7FC7932660B5750083B1C5 /* DailySubTableCell.swift */,
 				BB7FC7972660B72F0083B1C5 /* DailySaleTableCell.swift */,
 			);
-			path = FirstSection;
-			sourceTree = "<group>";
-		};
-		BB7FC7A32660C5BD0083B1C5 /* SecondSection */ = {
-			isa = PBXGroup;
-			children = (
-				BB7FC7A42660C6300083B1C5 /* RegretPriceTableCell.swift */,
-			);
-			path = SecondSection;
+			path = MainCell;
 			sourceTree = "<group>";
 		};
 		BBC2601D2654F1DB0012AFA0 = {
@@ -325,15 +359,9 @@
 		BBC260452654F6540012AFA0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5B119224267F3CD90024F007 /* MenuCollectionCell.swift */,
-				5B119228267F42670024F007 /* MainCollectionCell.swift */,
-				BBD7D08D266CD53D00A68264 /* CateUpperTableCell.swift */,
-				BBD7D07A2668E9E300A68264 /* CategoryTableCell.swift */,
-				5B1191B1267B25540024F007 /* MykurlyUpperTableCell.swift */,
-				5B1191AD267B244A0024F007 /* MykurlyTableCell.swift */,
-				5B1191D9267C7C690024F007 /* JoinTableCell.swift */,
-				BB7FC7A02660C5AF0083B1C5 /* FirstSection */,
-				BB7FC7A32660C5BD0083B1C5 /* SecondSection */,
+				5B11922C267F7D7A0024F007 /* HomeCell */,
+				5B11923D267F7FB80024F007 /* CategoryCell */,
+				5B11923C267F7F9F0024F007 /* MyKurlyCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -482,14 +510,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1191B8267B2D7F0024F007 /* LoginViewController.swift in Sources */,
+				5B119233267F7E070024F007 /* BestCollectionCell.swift in Sources */,
 				5B1191F3267E0E300024F007 /* JoinService.swift in Sources */,
 				BBD7D0822668EB4B00A68264 /* MykurlyViewController.swift in Sources */,
 				BB4E2F532663A9C600F46A87 /* UIView + Extension.swift in Sources */,
+				5B119230267F7DA90024F007 /* NewProductCollectionCell.swift in Sources */,
 				5B1191FA267E71FD0024F007 /* IdCheckService.swift in Sources */,
 				BB4E2F6F26656A1500F46A87 /* UIColor + Extension.swift in Sources */,
 				BB4E2F572663C71B00F46A87 /* TabBarController.swift in Sources */,
 				5B1191AE267B244A0024F007 /* MykurlyTableCell.swift in Sources */,
 				BBC2602E2654F1DB0012AFA0 /* ViewController.swift in Sources */,
+				5B11923A267F7E3F0024F007 /* DiscountCollectionCell.swift in Sources */,
 				5B1191F0267E0E270024F007 /* JoinDataModel.swift in Sources */,
 				5B119229267F42670024F007 /* MainCollectionCell.swift in Sources */,
 				BBD7D07B2668E9E300A68264 /* CategoryTableCell.swift in Sources */,
@@ -508,6 +539,7 @@
 				BB4E2F4C2663858E00F46A87 /* TableFooterView.swift in Sources */,
 				BB7FC790266033160083B1C5 /* SaleTableCell.swift in Sources */,
 				5B1191CE267C3FA00024F007 /* LoginDataModel.swift in Sources */,
+				5B11924C267F85D60024F007 /* JoinTableCell.swift in Sources */,
 				5B1191EB267DFA320024F007 /* UITextField + Extension.swift in Sources */,
 				5B11920B267E7B430024F007 /* SpecialPriceDataModel.swift in Sources */,
 				5B1191BF267B33910024F007 /* JoinViewController.swift in Sources */,
@@ -516,6 +548,7 @@
 				BBD7D07F2668EB3F00A68264 /* SearchViewController.swift in Sources */,
 				5B1191E6267DC4C70024F007 /* JoinSecondTableView.swift in Sources */,
 				BBC260422654F6420012AFA0 /* BannerTableCell.swift in Sources */,
+				5B119237267F7E260024F007 /* ShoppingCollectionCell.swift in Sources */,
 				5B1191BC267B2DA40024F007 /* SettingTopHeaderView.swift in Sources */,
 				5B1191CB267C3F550024F007 /* NetworkResult.swift in Sources */,
 				5B1191F7267E713B0024F007 /* IdCheckDataModel.swift in Sources */,
@@ -524,7 +557,6 @@
 				5B1191D3267C43720024F007 /* LoginService.swift in Sources */,
 				BBD7D0772668E04700A68264 /* TopHeaderView.swift in Sources */,
 				5B11921F267EFB8B0024F007 /* SaleSubTableCell.swift in Sources */,
-				5B1191DA267C7C690024F007 /* JoinTableCell.swift in Sources */,
 				5B1191C7267C3E090024F007 /* APIConstants.swift in Sources */,
 				5B1191B2267B25540024F007 /* MykurlyUpperTableCell.swift in Sources */,
 				5B119219267E8CAF0024F007 /* FoodDataModel.swift in Sources */,

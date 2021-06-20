@@ -13,8 +13,6 @@ import Then
 
 class ViewController: UIViewController {
     
-//    var saleList : [Sale] = []
-//    var saleDiscountList : [SpecialPrice] = []
     
     var colorArray = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.purple]
     
@@ -64,42 +62,25 @@ class ViewController: UIViewController {
         cv.showsHorizontalScrollIndicator = false
         return cv
     }()
-    
-    
-//    let mainTV = UITableView(frame: CGRect.zero, style: .grouped)
+
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getSaleData()
-//        getSpecialData()
+        
         
         configureUI()
         
         mainCV.delegate = self
         mainCV.dataSource = self
         mainCV.register(MainCollectionCell.self, forCellWithReuseIdentifier: "MainCollectionCell")
+        mainCV.register(NewProductCollectionCell.self, forCellWithReuseIdentifier: "NewProductCollectionCell")
+        mainCV.register(BestCollectionCell.self, forCellWithReuseIdentifier: "BestCollectionCell")
+        mainCV.register(ShoppingCollectionCell.self, forCellWithReuseIdentifier: "ShoppingCollectionCell")
+        mainCV.register(DiscountCollectionCell.self, forCellWithReuseIdentifier: "DiscountCollectionCell")
         
-//        mainTV.delegate = self
-//        mainTV.dataSource = self
-//        mainTV.separatorStyle = .none
-        
-        // 푸터 추가하고 나서 생긴 오류를 해결하는 코드 -> 이유가 뭘까?
-//        mainTV.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
-//        mainTV.sectionHeaderHeight = 0
-        
-//        // section == 0 에 해당하는 cell
-//        mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")
-//        mainTV.register(ProductTableCell.self, forCellReuseIdentifier: "ProductTableCell")
-//        mainTV.register(SaleTableCell.self, forCellReuseIdentifier: "SaleTableCell")
-//        mainTV.register(SaleSubTableCell.self, forCellReuseIdentifier: "SaleSubTableCell")
-//        mainTV.register(DailySubTableCell.self, forCellReuseIdentifier: "DailySubTableCell")
-//        mainTV.register(DailySaleTableCell.self, forCellReuseIdentifier: "DailySaleTableCell")
-//        
-//        // section == 1 에 해당하는 cell
-//        mainTV.register(RegretPriceTableCell.self, forCellReuseIdentifier: "RegretPriceTableCell")
     }
     
     //MARK: - UI 관련
@@ -166,26 +147,28 @@ extension ViewController : UICollectionViewDelegate {
         
         
         if scrollView.contentOffset == CGPoint(x: 0.0, y: 0.0) {
+            menuBar.menuCV.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .init())
             UIView.animate(withDuration: 0.3) {
                 // mainCV 이동하면 slideBar 위치도 같이 이동
                 slideBar.frame.origin.x = width * (15/width)
                 
                 // mainCV 이동하면 menuBar 메뉴 색상도 같이 변경
-                self.menuBar.menuCV.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .init())
+                
                 
             }
 
         } else if scrollView.contentOffset == CGPoint(x: width, y: 0.0) {
+            self.menuBar.menuCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .init())
             UIView.animate(withDuration: 0.3) {
                 slideBar.frame.origin.x = width * (15/width) + slideBarWidth
-                self.menuBar.menuCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .init())
+                
                 
             }
 
         } else if scrollView.contentOffset == CGPoint(x: width * 2, y: 0.0) {
+            self.menuBar.menuCV.selectItem(at: IndexPath(item: 2, section: 0), animated: true, scrollPosition: .init())
             UIView.animate(withDuration: 0.3) {
                 slideBar.frame.origin.x = width * (15/width) + slideBarWidth * 2
-                self.menuBar.menuCV.selectItem(at: IndexPath(item: 2, section: 0), animated: true, scrollPosition: .init())
 
             }
 
@@ -203,6 +186,8 @@ extension ViewController : UICollectionViewDelegate {
                
             }
         }
+        
+        mainCV.reloadData()
 
     }
 }
@@ -210,18 +195,47 @@ extension ViewController : UICollectionViewDelegate {
 // MARK: - UICollectionViewDataSource
 extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colorArray.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionCell", for: indexPath) as? MainCollectionCell else { return UICollectionViewCell() }
         
-        cell.backgroundColor = colorArray[indexPath.row]
-        cell.configureUI()
-        cell.getSaleData()
-        cell.getSpecialData()
-                
-        return cell
+        switch indexPath.row {
+        case 0:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionCell", for: indexPath) as? MainCollectionCell else { return UICollectionViewCell() }
+            
+            cell.backgroundColor = colorArray[indexPath.row]
+            cell.configureUI()
+            cell.getSaleData()
+            cell.getSpecialData()
+                    
+            return cell
+            
+        case 1:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionCell", for: indexPath)
+                    as? MainCollectionCell else { return UICollectionViewCell() }
+            cell.backgroundColor = .systemPink
+            return cell
+            
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestCollectionCell", for: indexPath)
+                    as? BestCollectionCell else { return UICollectionViewCell() }
+            cell.backgroundColor = .orange
+            return cell
+        
+        case 3:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShoppingCollectionCell", for: indexPath)
+                    as? ShoppingCollectionCell else { return UICollectionViewCell() }
+            cell.backgroundColor = .brown
+            return cell
+            
+        default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscountCollectionCell", for: indexPath)
+                    as? DiscountCollectionCell else { return UICollectionViewCell() }
+            cell.backgroundColor = .lightGray
+            return cell
+        }
+        
     }
         
 }

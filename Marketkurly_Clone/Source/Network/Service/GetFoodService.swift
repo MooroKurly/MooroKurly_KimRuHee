@@ -22,7 +22,8 @@ struct GetFoodService {
                                      method: .get,
                                      encoding: JSONEncoding.default,
                                      headers: header)
-        
+      
+       
         dataRequest.responseData { dataResponse in
             
             switch dataResponse.result {

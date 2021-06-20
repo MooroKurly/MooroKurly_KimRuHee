@@ -10,13 +10,15 @@ import Alamofire
 
 struct GetSpecialPriceService {
     
-    static let shared = GetSpecialPriceService()
+    static var shared = GetSpecialPriceService()
+    
+    
     
     func getSpecialPrice(completion : @escaping (NetworkResult<Any>) -> Void) {
         
-        let URL = APIConstants.specialURL
         let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
+        let URL = APIConstants.specialURL
         let dataRequest = AF.request(URL,
                                      method: .get,
                                      encoding: JSONEncoding.default,
@@ -24,6 +26,7 @@ struct GetSpecialPriceService {
         
         dataRequest.responseData { dataResponse in
             
+//            dump("ddd",dataResponse.result)
             switch dataResponse.result {
             case .success:
                 
@@ -33,7 +36,10 @@ struct GetSpecialPriceService {
                 completion(networkResult)
                 
             case .failure: completion(.pathErr)
+                print(dataResponse)
             }
+            
+            
         }
     }
     
@@ -46,15 +52,17 @@ struct GetSpecialPriceService {
         case 500: return .serverErr
         default: return .networkFail
             
+            
         }
     }
     
     private func isValidData(data : Data) -> NetworkResult<Any> {
         
         let decoder = JSONDecoder()
-        
+        print("여기", data)
         guard let decodedData = try? decoder.decode(SpecialPriceDataModel.self, from: data)
         else { return .pathErr }
+        
         
         return .success(decodedData.specialPrices)
                           

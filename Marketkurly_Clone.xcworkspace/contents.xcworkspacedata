@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/thisismehi/Desktop/MooroKurly_KimRuHee/Marketkurly_Clone/Source/View/NewProductCollectionCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:Marketkurly_Clone.xcodeproj">
    </FileRef>
    <FileRef

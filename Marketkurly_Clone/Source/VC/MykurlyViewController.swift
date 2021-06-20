@@ -60,7 +60,9 @@ class MykurlyViewController: UIViewController {
     
     @objc func gotoEnter(_ sender: UIButton) {
         
-        let nextVC = LoginViewController()
+        let rootVC = LoginViewController()
+        let nextVC = UINavigationController(rootViewController: rootVC)
+    
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
         

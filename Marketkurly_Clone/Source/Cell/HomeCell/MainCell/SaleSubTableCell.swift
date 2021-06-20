@@ -15,6 +15,8 @@ class SaleSubTableCell: UITableViewCell {
     
     let saleImage : UIImageView = {
         let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
         return image
     }()
     
@@ -40,8 +42,10 @@ class SaleSubTableCell: UITableViewCell {
         addSubview(saleSubLabel)
         
         saleImage.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview()
             make.leading.equalTo(16)
+            make.bottom.equalTo(-14)
+            make.width.height.equalTo(94)
         }
         
         saleLabel.snp.makeConstraints { (make) in

@@ -25,7 +25,7 @@ struct APIConstants {
     static let bannerURL = baseURL + "/main/banners"
     
     // 특가+혜택 URL
-    static let specialURL = baseURL + "/main/specialPrice"
+    static let specialURL = baseURL + "/main/sales/specialPrice"
     
     // 나머지 메인 뷰 URL
     static let foodURL = baseURL + "/main/sales?id="

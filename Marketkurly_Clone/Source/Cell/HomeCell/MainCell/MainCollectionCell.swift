@@ -23,6 +23,9 @@ class MainCollectionCell: UICollectionViewCell {
     
     func configureUI() {
         
+        getSaleData()
+        getSpecialData()
+        
         mainTV.delegate = self
         mainTV.dataSource = self
         mainTV.separatorStyle = .none
@@ -30,15 +33,13 @@ class MainCollectionCell: UICollectionViewCell {
         mainTV.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.leastNormalMagnitude))
         mainTV.sectionHeaderHeight = 0
         
-        // section == 0 에 해당하는 cell
+        
         mainTV.register(BannerTableCell.self, forCellReuseIdentifier: "BannerTableCell")
         mainTV.register(ProductTableCell.self, forCellReuseIdentifier: "ProductTableCell")
         mainTV.register(SaleTableCell.self, forCellReuseIdentifier: "SaleTableCell")
         mainTV.register(SaleSubTableCell.self, forCellReuseIdentifier: "SaleSubTableCell")
         mainTV.register(DailySubTableCell.self, forCellReuseIdentifier: "DailySubTableCell")
         mainTV.register(DailySaleTableCell.self, forCellReuseIdentifier: "DailySaleTableCell")
-        
-        // section == 1 에 해당하는 cell
         mainTV.register(RegretPriceTableCell.self, forCellReuseIdentifier: "RegretPriceTableCell")
         
         addSubview(mainTV)
@@ -69,7 +70,7 @@ class MainCollectionCell: UICollectionViewCell {
                 }
                 
             case .requestErr(let foodData):
-                print(foodData)
+                print("requestErr",foodData)
             case .pathErr:
                 print("pathErr")
             case .serverErr:
@@ -88,23 +89,22 @@ class MainCollectionCell: UICollectionViewCell {
             switch response {
             
             case .success(let priceData):
-                print(priceData,"여기여기")
                 if let decodedData = priceData as? [SpecialPrice] {
-                    print(decodedData,"여기여기")
                     self.saleDiscountList = decodedData
                     self.mainTV.reloadData()
                 }
                 
             case .requestErr(let priceData):
-                print("requestERR", priceData)
+                print("requestErr", priceData)
             case .pathErr:
-                print("pathERR")
+                print("pathErr")
             case .serverErr:
-                print("serverERR")
+                print("serverErr")
             case .networkFail:
-                print("networkFail","설마?")
+                print("networkFail")
             }
         }
+        
     }
     
     
@@ -138,7 +138,7 @@ extension MainCollectionCell : UITableViewDelegate {
             if indexPath.row == 0 {
                 return 64
             } else {
-                return 342
+                return 94 + 14
             }
             
         case 2:
@@ -159,8 +159,11 @@ extension MainCollectionCell : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch section {
-        case 0, 1, 2:
+        case 0, 2:
             return CGFloat()
+        
+        case 1:
+            return 32 - 14
             
         default:
             return 430
@@ -168,7 +171,6 @@ extension MainCollectionCell : UITableViewDelegate {
     }
     
 }
-
 
 
 //MARK: - UITableViewDataSource
@@ -229,6 +231,7 @@ extension MainCollectionCell : UITableViewDataSource {
                 saleCell.configureUI()
                 
                 return saleCell
+                
             } else { // 특가/혜택 내용 부분 셀
                 guard let saleSubCell = tableView.dequeueReusableCell(withIdentifier: "SaleSubTableCell", for: indexPath)
                         as? SaleSubTableCell else { return UITableViewCell() }
@@ -298,8 +301,13 @@ extension MainCollectionCell : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         switch section {
-        case 0, 1, 2:
+        case 0, 2:
             return UIView()
+        
+        case 1:
+            let view = UIView()
+            view.backgroundColor = UIColor(red: 246.0 / 255.0, green: 247.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+            return view
             
         default:
             let footer = TableFooterView()

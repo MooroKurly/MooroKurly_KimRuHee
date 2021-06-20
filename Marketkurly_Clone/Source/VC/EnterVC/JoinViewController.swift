@@ -70,8 +70,6 @@ class JoinViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-     
-
 }
 
 // MARK: - UITableViewDelegate

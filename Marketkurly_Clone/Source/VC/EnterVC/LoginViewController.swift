@@ -83,6 +83,8 @@ class LoginViewController: UIViewController {
         pwTextField.delegate = self
         
         configureUI()
+        
+        navigationController?.navigationBar.isHidden = true
 
     }
     
@@ -153,7 +155,7 @@ class LoginViewController: UIViewController {
 ///       여기 push로 열려야 하는데 그건 안됨.. 아직
         let nextVC = JoinViewController()
         nextVC.modalPresentationStyle = .fullScreen
-        present(nextVC, animated: true, completion: nil)
+        navigationController?.pushViewController(nextVC, animated: true)
 //        navigationController?.pushViewController(nextVC, animated: true)
     }
     
