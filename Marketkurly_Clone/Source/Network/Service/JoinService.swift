@@ -62,7 +62,9 @@ struct JoinService {
     
     private func judgeStatus(by statusCode : Int, _ data : Data) -> NetworkResult<Any> {
         
+        dump(data)
         let decoder = JSONDecoder()
+       
         
         guard let decodedData = try? decoder.decode(JoinDataModel.self, from: data)
         else { return .pathErr }

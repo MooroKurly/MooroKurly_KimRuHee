@@ -8,6 +8,10 @@
 import UIKit
 
 class JoinSecondTableView: UIView {
+    
+    let joinFirstView = JoinFirstTableView()
+    
+    var gender : String = ""
 
     // MARK: - Property
     
@@ -377,35 +381,34 @@ class JoinSecondTableView: UIView {
     
     // 회원가입 버튼
     @objc func joinAction(_ sender: UIButton) {
-        
-        var gender = String()
-        
+
         if JoinFirstTableView().boyToggleButton.isSelected {
             gender = "남"
         } else if JoinFirstTableView().girlToggleButton.isSelected {
             gender = "여"
         }
-       
-        JoinService.shared.join(id: JoinFirstTableView().idTextField.text!,
-                                password: JoinFirstTableView().pwTextField.text!,
-                                name: JoinFirstTableView().nameTextField.text!,
-                                email: JoinFirstTableView().emailTextField.text!,
-                                phone: JoinFirstTableView().phoneTextField.text!,
-                                address: JoinFirstTableView().addressTextField.text!,
-                                birth: JoinFirstTableView().birthTextField.text!,
+
+        JoinService.shared.join(id: joinFirstView.idTextField.text!,
+                                password: joinFirstView.pwTextField.text!,
+                                name: joinFirstView.nameTextField.text!,
+                                email: joinFirstView.emailTextField.text!,
+                                phone: joinFirstView.phoneTextField.text!,
+                                address: joinFirstView.addressTextField.text!,
+                                birth: joinFirstView.birthTextField.text!,
                                 gender: gender) { result in
-            
+
             switch result {
             case .success(let msg):
                 if let msg = msg as? String {
                     print(msg)
-                    
+
                 }
-            
+
             case .requestErr(let msg):
                 if let msg = msg as? String {
                     print(msg)
                 }
+
             case .pathErr:
                 print("pathErr")
             case .serverErr:
@@ -413,9 +416,9 @@ class JoinSecondTableView: UIView {
             case .networkFail:
                 print("networkFail")
             }
-            
+
         }
-        
+
     }
     
     // 화면 터치 시에 키보드 dismiss

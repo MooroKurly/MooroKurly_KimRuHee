@@ -598,8 +598,8 @@ class JoinFirstTableView: UIView {
         } else {
             sender.isSelected = true
         }
-        print("d")
     }
+
     
     // 화면 터치 시에 키보드 dismiss
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

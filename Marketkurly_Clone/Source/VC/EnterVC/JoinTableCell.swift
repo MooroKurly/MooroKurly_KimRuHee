@@ -37,11 +37,11 @@ class JoinTableCell: UITableViewCell {
         secondView.snp.makeConstraints { (make) in
             make.top.leading.bottom.trailing.equalToSuperview()
         }
-        
-        
-        
+            
     }
-
+    
+    // MARK: - Function
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
