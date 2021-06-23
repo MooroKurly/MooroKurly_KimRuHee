@@ -403,7 +403,8 @@ class JoinSecondTableView: UIView {
                     print(msg)
 
                 }
-
+            
+                
             case .requestErr(let msg):
                 if let msg = msg as? String {
                     print(msg)
@@ -418,6 +419,11 @@ class JoinSecondTableView: UIView {
             }
 
         }
+        
+        
+        
+        
+        
 
     }
     

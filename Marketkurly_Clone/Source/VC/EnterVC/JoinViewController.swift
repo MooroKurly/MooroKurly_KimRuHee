@@ -70,6 +70,9 @@ class JoinViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func pressJoinButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -130,6 +133,7 @@ extension JoinViewController : UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "JoinTableCell", for: indexPath) as? JoinTableCell else { return UITableViewCell() }
             cell.configureSecondCellUI()
             cell.selectionStyle = .none
+            cell.secondView.joinButton.addTarget(self, action: #selector(pressJoinButton(_:)), for: .touchUpInside)
             return cell
         }
         

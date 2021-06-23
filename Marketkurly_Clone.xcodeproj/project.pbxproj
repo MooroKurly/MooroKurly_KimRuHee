@@ -100,7 +100,7 @@
 		5B119221267F3C930024F007 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		5B119224267F3CD90024F007 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
 		5B119228267F42670024F007 /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
-		5B11922F267F7DA90024F007 /* NewProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProductCollectionCell.swift; path = /Users/thisismehi/Desktop/MooroKurly_KimRuHee/Marketkurly_Clone/Source/View/NewProductCollectionCell.swift; sourceTree = "<absolute>"; };
+		5B11922F267F7DA90024F007 /* NewProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProductCollectionCell.swift; path = /Users/thisismehi/Desktop/MooroKurly_KimRuHee/Marketkurly_Clone/Source/Cell/HomeCell/NewProductCollectionCell.swift; sourceTree = "<absolute>"; };
 		5B119232267F7E070024F007 /* BestCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCollectionCell.swift; sourceTree = "<group>"; };
 		5B119236267F7E260024F007 /* ShoppingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCollectionCell.swift; sourceTree = "<group>"; };
 		5B119239267F7E3F0024F007 /* DiscountCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCollectionCell.swift; sourceTree = "<group>"; };

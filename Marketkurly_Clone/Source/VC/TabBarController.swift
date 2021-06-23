@@ -25,7 +25,7 @@ class TabBarController : UITabBarController {
         
         let home = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "ic_home_unactive"), selectedImage: #imageLiteral(resourceName: "ic_home"), title: "홈", rootViewController: ViewController())
         
-        let recommend = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "ic_recom_unactive"), selectedImage: #imageLiteral(resourceName: "ic_recom"), title: "추천", rootViewController: SearchViewController())
+        let recommend = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "ic_recom_unactive"), selectedImage: #imageLiteral(resourceName: "ic_recom"), title: "추천", rootViewController: RecommandViewController())
         
         let category = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "ic_category_unactive"), selectedImage: #imageLiteral(resourceName: "ic_category"), title: "카테고리", rootViewController: CategoryViewController())
         
