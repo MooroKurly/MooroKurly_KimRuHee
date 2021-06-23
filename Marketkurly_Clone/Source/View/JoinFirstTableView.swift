@@ -424,7 +424,7 @@ class JoinFirstTableView: UIView {
         phoneTextField.snp.makeConstraints { (make) in
             make.top.equalTo(phoneLabel.snp.bottom).offset(10)
             make.leading.equalTo(20)
-            make.width.equalTo(240)
+            make.width.equalTo(205)
             make.height.equalTo(48)
             
         }
