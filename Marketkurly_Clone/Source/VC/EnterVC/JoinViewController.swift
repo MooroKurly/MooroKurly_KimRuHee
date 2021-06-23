@@ -8,6 +8,10 @@
 import UIKit
 
 class JoinViewController: UIViewController {
+    
+    let joinFirstView = JoinFirstTableView()
+    
+    var gender : String = ""
 
     // MARK: - Property
     
@@ -71,7 +75,50 @@ class JoinViewController: UIViewController {
     }
     
     @objc func pressJoinButton(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        
+        if joinFirstView.boyToggleButton.isSelected == true && joinFirstView.girlToggleButton.isSelected == false {
+            gender = "남"
+        } else if joinFirstView.girlToggleButton.isSelected == true && joinFirstView.boyToggleButton.isSelected == false {
+            gender = "여"
+        }
+
+        JoinService.shared.join(id: joinFirstView.idTextField.text!,
+                                password: joinFirstView.pwTextField.text!,
+                                name: joinFirstView.nameTextField.text!,
+                                email: joinFirstView.emailTextField.text!,
+                                phone: joinFirstView.phoneTextField.text!,
+                                address: joinFirstView.addressTextField.text!,
+                                birth: joinFirstView.birthTextField.text!,
+                                gender: gender) { result in
+
+            switch result {
+            case .success(let msg):
+                if let msg = msg as? String {
+                    print("success", msg)
+
+                }
+                
+                self.navigationController?.popViewController(animated: true)
+            
+                
+            case .requestErr(let msg):
+                if let msg = msg as? String {
+                    print("requestErr",msg)
+                }
+                
+                self.navigationController?.popViewController(animated: true)
+
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+
+        }
+        
+        
     }
 }
 

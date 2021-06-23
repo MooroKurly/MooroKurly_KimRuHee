@@ -8,10 +8,6 @@
 import UIKit
 
 class JoinSecondTableView: UIView {
-    
-    let joinFirstView = JoinFirstTableView()
-    
-    var gender : String = ""
 
     // MARK: - Property
     
@@ -196,7 +192,6 @@ class JoinSecondTableView: UIView {
     
     var joinButton : UIButton = UIButton().ductTape
         .reinforce { (btn) in
-            btn.addTarget(self, action: #selector(joinAction(_:)), for: .touchUpInside)
             btn.layer.cornerRadius = 5.0
             btn.backgroundColor = .kurlyPurple
             btn.setTitle("가입하기", for: .normal)
@@ -379,53 +374,6 @@ class JoinSecondTableView: UIView {
         
     }
     
-    // 회원가입 버튼
-    @objc func joinAction(_ sender: UIButton) {
-
-        if joinFirstView.boyToggleButton.isSelected == true && joinFirstView.girlToggleButton.isSelected == false {
-            gender = "남"
-        } else if joinFirstView.girlToggleButton.isSelected == true && joinFirstView.boyToggleButton.isSelected == false {
-            gender = "여"
-        }
-
-        JoinService.shared.join(id: joinFirstView.idTextField.text!,
-                                password: joinFirstView.pwTextField.text!,
-                                name: joinFirstView.nameTextField.text!,
-                                email: joinFirstView.emailTextField.text!,
-                                phone: joinFirstView.phoneTextField.text!,
-                                address: joinFirstView.addressTextField.text!,
-                                birth: joinFirstView.birthTextField.text!,
-                                gender: gender) { result in
-
-            switch result {
-            case .success(let msg):
-                if let msg = msg as? String {
-                    print(msg)
-
-                }
-            
-                
-            case .requestErr(let msg):
-                if let msg = msg as? String {
-                    print(msg)
-                }
-
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-
-        }
-        
-        
-        
-        
-        
-
-    }
     
     // 화면 터치 시에 키보드 dismiss
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
