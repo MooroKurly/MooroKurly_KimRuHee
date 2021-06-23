@@ -65,6 +65,7 @@ class ProductCollectionCell: UICollectionViewCell {
         
         nameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(productImage.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview()
         }
         
         percentLabel.snp.makeConstraints { (make) in
